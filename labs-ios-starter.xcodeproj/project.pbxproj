@@ -12,7 +12,6 @@
 		466C4274249A8748007D033E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C4273249A8748007D033E /* AppDelegate.swift */; };
 		466C4276249A8748007D033E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C4275249A8748007D033E /* SceneDelegate.swift */; };
 		466C427B249A8748007D033E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 466C4279249A8748007D033E /* Main.storyboard */; };
-		466C427D249A8749007D033E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 466C427C249A8749007D033E /* Assets.xcassets */; };
 		466C4280249A8749007D033E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 466C427E249A8749007D033E /* LaunchScreen.storyboard */; };
 		46908EB62513C971003252BA /* OktaAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 46908EB52513C971003252BA /* OktaAuth */; };
 		46BEB4E124C9828800FE0CD1 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BEB4E024C9828800FE0CD1 /* Profile.swift */; };
@@ -28,6 +27,7 @@
 		5ADEA2032579DE03000E28B2 /* Users.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 5ADEA2022579DE03000E28B2 /* Users.graphql */; };
 		5ADEA2072579DF1D000E28B2 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADEA2062579DF1D000E28B2 /* API.swift */; };
 		5ADEA20A2579DF54000E28B2 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADEA2092579DF54000E28B2 /* Network.swift */; };
+		5ADEA216257A23C4000E28B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5ADEA215257A23C4000E28B2 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +37,6 @@
 		466C4273249A8748007D033E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		466C4275249A8748007D033E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		466C427A249A8748007D033E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		466C427C249A8749007D033E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		466C427F249A8749007D033E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		466C4281249A8749007D033E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		466C4287249A889F007D033E /* File Organization.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "File Organization.md"; sourceTree = "<group>"; };
@@ -54,6 +53,7 @@
 		5ADEA2022579DE03000E28B2 /* Users.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Users.graphql; sourceTree = "<group>"; };
 		5ADEA2062579DF1D000E28B2 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = "labs-ios-starter/API.swift"; sourceTree = SOURCE_ROOT; };
 		5ADEA2092579DF54000E28B2 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		5ADEA215257A23C4000E28B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,9 +139,9 @@
 			isa = PBXGroup;
 			children = (
 				46BEB4E424C98CDC00FE0CD1 /* LoginViewController.swift */,
-				463AD24424CF2CDB00447BB8 /* AddProfileViewController.swift */,
 				466C4279249A8748007D033E /* Main.storyboard */,
 				46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */,
+				463AD24424CF2CDB00447BB8 /* AddProfileViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -170,7 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				466C4287249A889F007D033E /* File Organization.md */,
-				466C427C249A8749007D033E /* Assets.xcassets */,
+				5ADEA215257A23C4000E28B2 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -254,10 +254,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				466C4280249A8749007D033E /* LaunchScreen.storyboard in Resources */,
-				466C427D249A8749007D033E /* Assets.xcassets in Resources */,
 				46BEB4F124C98F0D00FE0CD1 /* Profiles.storyboard in Resources */,
 				5ADEA2032579DE03000E28B2 /* Users.graphql in Resources */,
 				466C427B249A8748007D033E /* Main.storyboard in Resources */,
+				5ADEA216257A23C4000E28B2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

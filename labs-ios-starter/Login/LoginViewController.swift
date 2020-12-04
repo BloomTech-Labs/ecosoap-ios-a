@@ -11,10 +11,32 @@ import OktaAuth
 
 class LoginViewController: UIViewController {
     
+    // MARK: - Properties -
+    
     let profileController = ProfileController.shared
+    
+    private let iconImage: UIImageView = {
+        let iv = UIImageView()
+        iv.image = UIImage(named: "ecoSoapBankLogo")
+        return iv
+    }()
+    
+    private let dontHaveAccountButton: UIButton = {
+        let button = UIButton(type: .system)
+        let attributedTitle = NSMutableAttributedString(string: "Don't have an account?  ",
+                                                        attributes: [.font : UIFont.systemFont(ofSize: 16), .foregroundColor : UIColor.white])
+        attributedTitle.append(NSAttributedString(string: "Sign Up",
+                                                  attributes: [.font : UIFont.boldSystemFont(ofSize: 16), .foregroundColor : UIColor.white]))
+        
+        button.setAttributedTitle(attributedTitle, for: .normal)
+        button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
+        
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureUI()
         
         NotificationCenter.default.addObserver(forName: .oktaAuthenticationSuccessful,
                                                object: nil,
@@ -32,6 +54,44 @@ class LoginViewController: UIViewController {
     
     @IBAction func signIn(_ sender: Any) {
         UIApplication.shared.open(ProfileController.shared.oktaAuth.identityAuthURL()!)
+    }
+    
+    // MARK: - UI Configuration Methods -
+    
+    func configureUI() {
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.barStyle = .black
+        
+        configureGradientLayer()
+        
+        view.addSubview(iconImage)
+        iconImage.centerX(inView: view)
+        iconImage.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 30)
+        iconImage.setDimensions(height: 140, width: 150)
+        
+        iconImage.layer.shadowColor = UIColor.black.cgColor
+        iconImage.layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
+        iconImage.layer.shadowRadius = 5.0
+        iconImage.layer.shadowOpacity = 1.0
+        
+        view.addSubview(dontHaveAccountButton)
+        dontHaveAccountButton.anchor(left: view.leftAnchor,
+                                     bottom: view.safeAreaLayoutGuide.bottomAnchor,
+                                     right: view.rightAnchor,
+                                     paddingLeft: 32,
+                                     paddingRight: 32)
+    }
+    
+    func configureGradientLayer() {
+        let gradient = CAGradientLayer()
+        gradient.colors = [UIColor.white.cgColor, UIColor(named: "ESB Green")?.cgColor]
+        gradient.locations = [0, 1]
+        view.layer.addSublayer(gradient)
+        gradient.frame = view.frame
+    }
+    
+    @objc func handleShowSignUp() {
+        
     }
     
     // MARK: - Private Methods
