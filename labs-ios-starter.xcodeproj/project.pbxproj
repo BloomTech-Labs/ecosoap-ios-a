@@ -23,6 +23,11 @@
 		46BEB4F124C98F0D00FE0CD1 /* Profiles.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BEB4F024C98F0D00FE0CD1 /* Profiles.storyboard */; };
 		46BF10BE24D388FF001C6753 /* UIViewController+SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF10BD24D388FF001C6753 /* UIViewController+SimpleAlert.swift */; };
 		46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */; };
+		5ADEA1F12579BEB2000E28B2 /* ProgrammaticConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADEA1F02579BEB2000E28B2 /* ProgrammaticConstraints.swift */; };
+		5ADEA1F52579BEDC000E28B2 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 5ADEA1F42579BEDC000E28B2 /* Apollo */; };
+		5ADEA2032579DE03000E28B2 /* Users.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 5ADEA2022579DE03000E28B2 /* Users.graphql */; };
+		5ADEA2072579DF1D000E28B2 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADEA2062579DF1D000E28B2 /* API.swift */; };
+		5ADEA20A2579DF54000E28B2 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADEA2092579DF54000E28B2 /* Network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +49,11 @@
 		46BEB4F024C98F0D00FE0CD1 /* Profiles.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profiles.storyboard; sourceTree = "<group>"; };
 		46BF10BD24D388FF001C6753 /* UIViewController+SimpleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+SimpleAlert.swift"; sourceTree = "<group>"; };
 		46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabBarViewController.swift; sourceTree = "<group>"; };
+		5ADEA1F02579BEB2000E28B2 /* ProgrammaticConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgrammaticConstraints.swift; sourceTree = "<group>"; };
+		5ADEA1FB2579C35B000E28B2 /* schema.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
+		5ADEA2022579DE03000E28B2 /* Users.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Users.graphql; sourceTree = "<group>"; };
+		5ADEA2062579DF1D000E28B2 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = "labs-ios-starter/API.swift"; sourceTree = SOURCE_ROOT; };
+		5ADEA2092579DF54000E28B2 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +62,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46908EB62513C971003252BA /* OktaAuth in Frameworks */,
+				5ADEA1F52579BEDC000E28B2 /* Apollo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,15 +98,16 @@
 		466C4272249A8748007D033E /* labs-ios-starter */ = {
 			isa = PBXGroup;
 			children = (
+				465DAA2724BD0BC100D94C24 /* App Lifecycle */,
 				46BEB4EB24C98EB400FE0CD1 /* Model */,
 				46BEB4EC24C98EBB00FE0CD1 /* Model Controller */,
 				46BEB4EF24C98ED900FE0CD1 /* Login */,
 				46BEB4F224C98F1100FE0CD1 /* Profiles */,
+				5ADEA1EF2579BE9C000E28B2 /* Extensions */,
+				5ADEA2012579DD38000E28B2 /* TestingApollo */,
 				46BEB4EA24C98EA300FE0CD1 /* Helpers */,
-				465DAA2724BD0BC100D94C24 /* App Lifecycle */,
-				466C427C249A8749007D033E /* Assets.xcassets */,
+				5ADEA1FD2579DC90000E28B2 /* Resources */,
 				466C4281249A8749007D033E /* Info.plist */,
-				466C4287249A889F007D033E /* File Organization.md */,
 			);
 			path = "labs-ios-starter";
 			sourceTree = "<group>";
@@ -103,8 +115,6 @@
 		46BEB4EA24C98EA300FE0CD1 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				46BEB4E624C98D8900FE0CD1 /* Notifications.swift */,
-				46BF10BD24D388FF001C6753 /* UIViewController+SimpleAlert.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -146,6 +156,36 @@
 			path = Profiles;
 			sourceTree = "<group>";
 		};
+		5ADEA1EF2579BE9C000E28B2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5ADEA1F02579BEB2000E28B2 /* ProgrammaticConstraints.swift */,
+				46BEB4E624C98D8900FE0CD1 /* Notifications.swift */,
+				46BF10BD24D388FF001C6753 /* UIViewController+SimpleAlert.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5ADEA1FD2579DC90000E28B2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				466C4287249A889F007D033E /* File Organization.md */,
+				466C427C249A8749007D033E /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5ADEA2012579DD38000E28B2 /* TestingApollo */ = {
+			isa = PBXGroup;
+			children = (
+				5ADEA1FB2579C35B000E28B2 /* schema.json */,
+				5ADEA2092579DF54000E28B2 /* Network.swift */,
+				5ADEA2062579DF1D000E28B2 /* API.swift */,
+				5ADEA2022579DE03000E28B2 /* Users.graphql */,
+			);
+			path = TestingApollo;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -153,6 +193,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 466C4284249A8749007D033E /* Build configuration list for PBXNativeTarget "labs-ios-starter" */;
 			buildPhases = (
+				5ADEA1F72579BFFF000E28B2 /* Apollo CLI */,
 				466C426C249A8748007D033E /* Sources */,
 				466C426D249A8748007D033E /* Frameworks */,
 				466C426E249A8748007D033E /* Resources */,
@@ -164,6 +205,7 @@
 			name = "labs-ios-starter";
 			packageProductDependencies = (
 				46908EB52513C971003252BA /* OktaAuth */,
+				5ADEA1F42579BEDC000E28B2 /* Apollo */,
 			);
 			productName = LabsScaffolding;
 			productReference = 466C4270249A8748007D033E /* labs-ios-starter.app */;
@@ -195,6 +237,7 @@
 			mainGroup = 466C4267249A8748007D033E;
 			packageReferences = (
 				46908EB42513C971003252BA /* XCRemoteSwiftPackageReference "OktaAuth" */,
+				5ADEA1F32579BEDC000E28B2 /* XCRemoteSwiftPackageReference "apollo-ios" */,
 			);
 			productRefGroup = 466C4271249A8748007D033E /* Products */;
 			projectDirPath = "";
@@ -213,11 +256,33 @@
 				466C4280249A8749007D033E /* LaunchScreen.storyboard in Resources */,
 				466C427D249A8749007D033E /* Assets.xcassets in Resources */,
 				46BEB4F124C98F0D00FE0CD1 /* Profiles.storyboard in Resources */,
+				5ADEA2032579DE03000E28B2 /* Users.graphql in Resources */,
 				466C427B249A8748007D033E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5ADEA1F72579BFFF000E28B2 /* Apollo CLI */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Apollo CLI";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Go to the build root and search up the chain to find the Derived Data Path where the source packages are checked out.\nDERIVED_DATA_CANDIDATE=\"${BUILD_ROOT}\"\n\nwhile ! [ -d \"${DERIVED_DATA_CANDIDATE}/SourcePackages\" ]; do\n  if [ \"${DERIVED_DATA_CANDIDATE}\" = / ]; then\n    echo >&2 \"error: Unable to locate SourcePackages directory from BUILD_ROOT: '${BUILD_ROOT}'\"\n    exit 1\n  fi\n\n  DERIVED_DATA_CANDIDATE=\"$(dirname \"${DERIVED_DATA_CANDIDATE}\")\"\ndone\n\n# Grab a reference to the directory where scripts are checked out\nSCRIPT_PATH=\"${DERIVED_DATA_CANDIDATE}/SourcePackages/checkouts/apollo-ios/scripts\"\n\nif [ -z \"${SCRIPT_PATH}\" ]; then\n    echo >&2 \"error: Couldn't find the CLI script in your checked out SPM packages; make sure to add the framework to your project.\"\n    exit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"schema.json\" API.swift\n\n#\"${SCRIPT_PATH}\"/run-bundled-codegen.sh schema:download --endpoint=\"http://35.208.9.187:9294/ios-api-1\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		466C426C249A8748007D033E /* Sources */ = {
@@ -232,8 +297,11 @@
 				463AD24524CF2CDB00447BB8 /* AddProfileViewController.swift in Sources */,
 				466C4274249A8748007D033E /* AppDelegate.swift in Sources */,
 				46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */,
+				5ADEA2072579DF1D000E28B2 /* API.swift in Sources */,
 				463AD24324CF275900447BB8 /* ProfileDetailViewController.swift in Sources */,
 				46BEB4E524C98CDC00FE0CD1 /* LoginViewController.swift in Sources */,
+				5ADEA1F12579BEB2000E28B2 /* ProgrammaticConstraints.swift in Sources */,
+				5ADEA20A2579DF54000E28B2 /* Network.swift in Sources */,
 				466C4276249A8748007D033E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,6 +514,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		5ADEA1F32579BEDC000E28B2 /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 0.38.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -453,6 +529,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 46908EB42513C971003252BA /* XCRemoteSwiftPackageReference "OktaAuth" */;
 			productName = OktaAuth;
+		};
+		5ADEA1F42579BEDC000E28B2 /* Apollo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5ADEA1F32579BEDC000E28B2 /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = Apollo;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
