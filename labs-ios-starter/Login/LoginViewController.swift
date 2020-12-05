@@ -15,10 +15,18 @@ class LoginViewController: UIViewController {
     
     let profileController = ProfileController.shared
     
-    private let iconImage: UIImageView = {
-        let iv = UIImageView()
-        iv.image = UIImage(named: "ecoSoapBankLogo")
-        return iv
+    private let ecoSoapBankLogo: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "ecoSoapBankLogo")
+        return imageView
+    }()
+    
+    private let missionStatementTextLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Our Mission:\n" + "\n" + "Saving, sanitizing, and supplying\n" + "RECYCLED SOAP\n" + "\n" + "for the developing world"
+        label.textColor = UIColor.esbGreen
+        label.numberOfLines = 0
+        return label
     }()
     
     private let dontHaveAccountButton: UIButton = {
@@ -33,6 +41,10 @@ class LoginViewController: UIViewController {
         
         return button
     }()
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .darkContent
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,15 +76,18 @@ class LoginViewController: UIViewController {
         
         configureGradientLayer()
         
-        view.addSubview(iconImage)
-        iconImage.centerX(inView: view)
-        iconImage.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 30)
-        iconImage.setDimensions(height: 140, width: 150)
+        view.addSubview(ecoSoapBankLogo)
+        ecoSoapBankLogo.centerX(inView: view)
+        ecoSoapBankLogo.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 30)
+        ecoSoapBankLogo.setDimensions(height: 140, width: 150)
         
-        iconImage.layer.shadowColor = UIColor.black.cgColor
-        iconImage.layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
-        iconImage.layer.shadowRadius = 5.0
-        iconImage.layer.shadowOpacity = 1.0
+        ecoSoapBankLogo.layer.shadowColor = UIColor.black.cgColor
+        ecoSoapBankLogo.layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
+        ecoSoapBankLogo.layer.shadowRadius = 5.0
+        ecoSoapBankLogo.layer.shadowOpacity = 1.0
+        
+        view.addSubview(missionStatementTextLabel)
+        missionStatementTextLabel.anchor(top: ecoSoapBankLogo.bottomAnchor, left: view.leftAnchor, paddingTop: 30, paddingLeft: 50, paddingRight: 50, width: 250, height: 100)
         
         view.addSubview(dontHaveAccountButton)
         dontHaveAccountButton.anchor(left: view.leftAnchor,
@@ -84,7 +99,7 @@ class LoginViewController: UIViewController {
     
     func configureGradientLayer() {
         let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.white.cgColor, UIColor(named: "ESB Green")?.cgColor]
+        gradient.colors = [UIColor.esbGreen?.lighter(componentDelta: 0.4).cgColor, UIColor.esbGreen?.cgColor]
         gradient.locations = [0, 1]
         view.layer.addSublayer(gradient)
         gradient.frame = view.frame
