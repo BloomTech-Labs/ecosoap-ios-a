@@ -23,8 +23,9 @@ class LoginViewController: UIViewController {
     
     private let missionStatementTextLabel: UILabel = {
         let label = UILabel()
-        label.text = "Our Mission:\n" + "\n" + "Saving, sanitizing, and supplying\n" + "RECYCLED SOAP\n" + "\n" + "for the developing world"
-        label.textColor = UIColor.esbGreen
+        label.text = "Our Mission:\n\n" + "Saving, sanitizing, and supplying\n\n" + "RECYCLED SOAP\n\n" + "for the developing world!"
+        label.textColor = UIColor.esbGreen?.darker(componentDelta: 0.1)
+        label.font = UIFont.init(name: "Verdana", size: 18)
         label.numberOfLines = 0
         return label
     }()
@@ -87,7 +88,7 @@ class LoginViewController: UIViewController {
         ecoSoapBankLogo.layer.shadowOpacity = 1.0
         
         view.addSubview(missionStatementTextLabel)
-        missionStatementTextLabel.anchor(top: ecoSoapBankLogo.bottomAnchor, left: view.leftAnchor, paddingTop: 30, paddingLeft: 50, paddingRight: 50, width: 250, height: 100)
+        missionStatementTextLabel.anchor(top: ecoSoapBankLogo.bottomAnchor, left: view.leftAnchor, paddingTop: 10, paddingLeft: 60, paddingRight: 40, width: 350, height: 200)
         
         view.addSubview(dontHaveAccountButton)
         dontHaveAccountButton.anchor(left: view.leftAnchor,
@@ -114,9 +115,9 @@ class LoginViewController: UIViewController {
     private func alertUserOfExpiredCredentials(_ notification: Notification) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.presentSimpleAlert(with: "Your Okta credentials have expired",
-                           message: "Please sign in again",
-                           preferredStyle: .alert,
-                           dismissText: "Dimiss")
+                                    message: "Please sign in again",
+                                    preferredStyle: .alert,
+                                    dismissText: "Dimiss")
         }
     }
     
@@ -130,7 +131,7 @@ class LoginViewController: UIViewController {
         profileController.checkForExistingAuthenticatedUserProfile { [weak self] (exists) in
             
             guard let self = self,
-                self.presentedViewController == nil else { return }
+                  self.presentedViewController == nil else { return }
             
             if exists {
                 self.performSegue(withIdentifier: "ShowDetailProfileList", sender: nil)
