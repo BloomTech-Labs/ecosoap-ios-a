@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
     private let missionStatementTextLabel: UILabel = {
         let label = UILabel()
         label.text = "Our Mission:\n\n" + "Saving, sanitizing, and supplying\n\n" + "RECYCLED SOAP\n\n" + "for the developing world!"
-        label.textColor = UIColor.esbGreen?.darker(componentDelta: 0.1)
+        label.textColor = UIColor.black
         label.font = UIFont.init(name: "Verdana", size: 18)
         label.numberOfLines = 0
         return label
@@ -33,9 +33,9 @@ class LoginViewController: UIViewController {
     private let dontHaveAccountButton: UIButton = {
         let button = UIButton(type: .system)
         let attributedTitle = NSMutableAttributedString(string: "Don't have an account?  ",
-                                                        attributes: [.font : UIFont.systemFont(ofSize: 16), .foregroundColor : UIColor.white])
+                                                        attributes: [.font : UIFont.systemFont(ofSize: 16), .foregroundColor : UIColor.black])
         attributedTitle.append(NSAttributedString(string: "Sign Up",
-                                                  attributes: [.font : UIFont.boldSystemFont(ofSize: 16), .foregroundColor : UIColor.white]))
+                                                  attributes: [.font : UIFont.boldSystemFont(ofSize: 16), .foregroundColor : UIColor.black]))
         
         button.setAttributedTitle(attributedTitle, for: .normal)
         button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
