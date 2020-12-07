@@ -43,6 +43,19 @@ class LoginViewController: UIViewController {
         return button
     }()
     
+    private let loginButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Log In", for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 25)
+        button.setHeight(height: 40)
+        button.backgroundColor = .black
+        button.layer.cornerRadius = 8.0
+        button.layer.borderColor = UIColor.black.cgColor
+        button.layer.borderWidth = 1.0
+        return button
+    }()
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         .darkContent
     }
@@ -73,7 +86,6 @@ class LoginViewController: UIViewController {
     
     func configureUI() {
         navigationController?.navigationBar.isHidden = true
-        navigationController?.navigationBar.barStyle = .black
         
         configureGradientLayer()
         
@@ -88,14 +100,13 @@ class LoginViewController: UIViewController {
         ecoSoapBankLogo.layer.shadowOpacity = 1.0
         
         view.addSubview(missionStatementTextLabel)
-        missionStatementTextLabel.anchor(top: ecoSoapBankLogo.bottomAnchor, left: view.leftAnchor, paddingTop: 10, paddingLeft: 60, paddingRight: 40, width: 350, height: 200)
+        missionStatementTextLabel.anchor(top: ecoSoapBankLogo.bottomAnchor, left: view.leftAnchor, paddingTop: 30, paddingLeft: 55, paddingRight: 45, width: 300, height: 200)
+        
+        view.addSubview(loginButton)
+        loginButton.anchor(top: missionStatementTextLabel.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 80, paddingLeft: 90, paddingRight: 90)
         
         view.addSubview(dontHaveAccountButton)
-        dontHaveAccountButton.anchor(left: view.leftAnchor,
-                                     bottom: view.safeAreaLayoutGuide.bottomAnchor,
-                                     right: view.rightAnchor,
-                                     paddingLeft: 32,
-                                     paddingRight: 32)
+        dontHaveAccountButton.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingLeft: 32, paddingRight: 32)
     }
     
     func configureGradientLayer() {
