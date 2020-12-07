@@ -103,7 +103,7 @@ class LoginViewController: UIViewController {
         missionStatementTextLabel.anchor(top: ecoSoapBankLogo.bottomAnchor, left: view.leftAnchor, paddingTop: 30, paddingLeft: 55, paddingRight: 45, width: 300, height: 200)
         
         view.addSubview(loginButton)
-        loginButton.anchor(top: missionStatementTextLabel.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 80, paddingLeft: 90, paddingRight: 90)
+        loginButton.anchor(top: missionStatementTextLabel.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 120, paddingLeft: 90, paddingRight: 90)
         
         view.addSubview(dontHaveAccountButton)
         dontHaveAccountButton.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingLeft: 32, paddingRight: 32)
