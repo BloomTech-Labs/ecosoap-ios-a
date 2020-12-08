@@ -78,16 +78,13 @@ class LoginViewController: UIViewController {
     
     // MARK: - Actions
     
-    @IBAction func signIn(_ sender: Any) {
-        UIApplication.shared.open(ProfileController.shared.oktaAuth.identityAuthURL()!)
-    }
     
     // MARK: - UI Configuration Methods -
     
-    func configureUI() {
+    private func configureUI() {
         navigationController?.navigationBar.isHidden = true
         
-        configureGradientLayer()
+        Helper.configureGradientLayer(view: view)
         
         view.addSubview(ecoSoapBankLogo)
         ecoSoapBankLogo.centerX(inView: view)
@@ -108,14 +105,6 @@ class LoginViewController: UIViewController {
         
         view.addSubview(dontHaveAccountButton)
         dontHaveAccountButton.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingLeft: 32, paddingRight: 32)
-    }
-    
-    func configureGradientLayer() {
-        let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.esbGreen?.lighter(componentDelta: 0.4).cgColor, UIColor.esbGreen?.cgColor]
-        gradient.locations = [0, 1]
-        view.layer.addSublayer(gradient)
-        gradient.frame = view.frame
     }
     
     // MARK: - Actions -

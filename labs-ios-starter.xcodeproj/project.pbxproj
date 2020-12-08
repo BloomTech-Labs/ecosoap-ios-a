@@ -22,6 +22,8 @@
 		46BEB4F124C98F0D00FE0CD1 /* Profiles.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BEB4F024C98F0D00FE0CD1 /* Profiles.storyboard */; };
 		46BF10BE24D388FF001C6753 /* UIViewController+SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF10BD24D388FF001C6753 /* UIViewController+SimpleAlert.swift */; };
 		46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */; };
+		5ADD8328257F7E8D00A6E6A3 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADD8327257F7E8D00A6E6A3 /* DashboardViewController.swift */; };
+		5ADD832B257F82AB00A6E6A3 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADD832A257F82AB00A6E6A3 /* Helper.swift */; };
 		5ADEA1F12579BEB2000E28B2 /* ProgrammaticConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADEA1F02579BEB2000E28B2 /* ProgrammaticConstraints.swift */; };
 		5ADEA1F52579BEDC000E28B2 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 5ADEA1F42579BEDC000E28B2 /* Apollo */; };
 		5ADEA2032579DE03000E28B2 /* Users.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 5ADEA2022579DE03000E28B2 /* Users.graphql */; };
@@ -49,6 +51,8 @@
 		46BEB4F024C98F0D00FE0CD1 /* Profiles.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profiles.storyboard; sourceTree = "<group>"; };
 		46BF10BD24D388FF001C6753 /* UIViewController+SimpleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+SimpleAlert.swift"; sourceTree = "<group>"; };
 		46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabBarViewController.swift; sourceTree = "<group>"; };
+		5ADD8327257F7E8D00A6E6A3 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		5ADD832A257F82AB00A6E6A3 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		5ADEA1F02579BEB2000E28B2 /* ProgrammaticConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgrammaticConstraints.swift; sourceTree = "<group>"; };
 		5ADEA1FB2579C35B000E28B2 /* schema.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		5ADEA2022579DE03000E28B2 /* Users.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Users.graphql; sourceTree = "<group>"; };
@@ -104,6 +108,7 @@
 				46BEB4EB24C98EB400FE0CD1 /* Model */,
 				46BEB4EC24C98EBB00FE0CD1 /* Model Controller */,
 				46BEB4EF24C98ED900FE0CD1 /* Login */,
+				5ADD8326257F7E5800A6E6A3 /* Dashboard */,
 				46BEB4F224C98F1100FE0CD1 /* Profiles */,
 				5ADEA1EF2579BE9C000E28B2 /* Extensions */,
 				5ADEA2012579DD38000E28B2 /* TestingApollo */,
@@ -117,6 +122,7 @@
 		46BEB4EA24C98EA300FE0CD1 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				5ADD832A257F82AB00A6E6A3 /* Helper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -156,6 +162,14 @@
 				46BEB4F024C98F0D00FE0CD1 /* Profiles.storyboard */,
 			);
 			path = Profiles;
+			sourceTree = "<group>";
+		};
+		5ADD8326257F7E5800A6E6A3 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				5ADD8327257F7E8D00A6E6A3 /* DashboardViewController.swift */,
+			);
+			path = Dashboard;
 			sourceTree = "<group>";
 		};
 		5ADEA1EF2579BE9C000E28B2 /* Extensions */ = {
@@ -300,6 +314,7 @@
 				46BEB4E924C98DAF00FE0CD1 /* ProfileListViewController.swift in Sources */,
 				463AD24524CF2CDB00447BB8 /* AddProfileViewController.swift in Sources */,
 				466C4274249A8748007D033E /* AppDelegate.swift in Sources */,
+				5ADD832B257F82AB00A6E6A3 /* Helper.swift in Sources */,
 				46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */,
 				5ADEA2072579DF1D000E28B2 /* API.swift in Sources */,
 				463AD24324CF275900447BB8 /* ProfileDetailViewController.swift in Sources */,
@@ -307,6 +322,7 @@
 				5ADEA1F12579BEB2000E28B2 /* ProgrammaticConstraints.swift in Sources */,
 				5ADEA20A2579DF54000E28B2 /* Network.swift in Sources */,
 				466C4276249A8748007D033E /* SceneDelegate.swift in Sources */,
+				5ADD8328257F7E8D00A6E6A3 /* DashboardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
