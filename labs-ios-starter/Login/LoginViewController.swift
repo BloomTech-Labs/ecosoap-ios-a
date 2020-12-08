@@ -104,6 +104,7 @@ class LoginViewController: UIViewController {
         
         view.addSubview(loginButton)
         loginButton.anchor(top: missionStatementTextLabel.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 120, paddingLeft: 90, paddingRight: 90)
+        loginButton.addTarget(self, action: #selector(logInButtonTapped), for: .touchUpInside)
         
         view.addSubview(dontHaveAccountButton)
         dontHaveAccountButton.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingLeft: 32, paddingRight: 32)
@@ -117,8 +118,14 @@ class LoginViewController: UIViewController {
         gradient.frame = view.frame
     }
     
+    // MARK: - Actions -
+    
     @objc func handleShowSignUp() {
         
+    }
+    
+    @objc func logInButtonTapped() {
+        UIApplication.shared.open(ProfileController.shared.oktaAuth.identityAuthURL()!)
     }
     
     // MARK: - Private Methods
