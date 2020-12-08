@@ -29,6 +29,9 @@
 		5ADEA20A2579DF54000E28B2 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADEA2092579DF54000E28B2 /* Network.swift */; };
 		5ADEA216257A23C4000E28B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5ADEA215257A23C4000E28B2 /* Assets.xcassets */; };
 		5ADEA21B257B7A3E000E28B2 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADEA21A257B7A3E000E28B2 /* UIColor.swift */; };
+		DBF5CEA4257EF8AF00BD84CD /* AdminProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBF5CEA3257EF8AF00BD84CD /* AdminProfile.storyboard */; };
+		DBF5CEA7257EFA5F00BD84CD /* AdminProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5CEA6257EFA5F00BD84CD /* AdminProfileViewController.swift */; };
+		DBF5CEAA257EFB8000BD84CD /* AdminProfileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5CEA9257EFB8000BD84CD /* AdminProfileDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +59,9 @@
 		5ADEA2092579DF54000E28B2 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		5ADEA215257A23C4000E28B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5ADEA21A257B7A3E000E28B2 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		DBF5CEA3257EF8AF00BD84CD /* AdminProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdminProfile.storyboard; sourceTree = "<group>"; };
+		DBF5CEA6257EFA5F00BD84CD /* AdminProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminProfileViewController.swift; sourceTree = "<group>"; };
+		DBF5CEA9257EFB8000BD84CD /* AdminProfileDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminProfileDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +106,7 @@
 		466C4272249A8748007D033E /* labs-ios-starter */ = {
 			isa = PBXGroup;
 			children = (
+				DBF5CEA2257EF89700BD84CD /* AdminProfile */,
 				465DAA2724BD0BC100D94C24 /* App Lifecycle */,
 				46BEB4EB24C98EB400FE0CD1 /* Model */,
 				46BEB4EC24C98EBB00FE0CD1 /* Model Controller */,
@@ -189,6 +196,24 @@
 			path = TestingApollo;
 			sourceTree = "<group>";
 		};
+		DBF5CEA2257EF89700BD84CD /* AdminProfile */ = {
+			isa = PBXGroup;
+			children = (
+				DBF5CEAC257EFFC100BD84CD /* AdminProfileQueries */,
+				DBF5CEA3257EF8AF00BD84CD /* AdminProfile.storyboard */,
+				DBF5CEA6257EFA5F00BD84CD /* AdminProfileViewController.swift */,
+				DBF5CEA9257EFB8000BD84CD /* AdminProfileDetailViewController.swift */,
+			);
+			path = AdminProfile;
+			sourceTree = "<group>";
+		};
+		DBF5CEAC257EFFC100BD84CD /* AdminProfileQueries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AdminProfileQueries;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -256,6 +281,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBF5CEA4257EF8AF00BD84CD /* AdminProfile.storyboard in Resources */,
 				466C4280249A8749007D033E /* LaunchScreen.storyboard in Resources */,
 				46BEB4F124C98F0D00FE0CD1 /* Profiles.storyboard in Resources */,
 				5ADEA2032579DE03000E28B2 /* Users.graphql in Resources */,
@@ -297,9 +323,11 @@
 				46BEB4E724C98D8900FE0CD1 /* Notifications.swift in Sources */,
 				46BEB4E124C9828800FE0CD1 /* Profile.swift in Sources */,
 				5ADEA21B257B7A3E000E28B2 /* UIColor.swift in Sources */,
+				DBF5CEAA257EFB8000BD84CD /* AdminProfileDetailViewController.swift in Sources */,
 				46BEB4E924C98DAF00FE0CD1 /* ProfileListViewController.swift in Sources */,
 				463AD24524CF2CDB00447BB8 /* AddProfileViewController.swift in Sources */,
 				466C4274249A8748007D033E /* AppDelegate.swift in Sources */,
+				DBF5CEA7257EFA5F00BD84CD /* AdminProfileViewController.swift in Sources */,
 				46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */,
 				5ADEA2072579DF1D000E28B2 /* API.swift in Sources */,
 				463AD24324CF275900447BB8 /* ProfileDetailViewController.swift in Sources */,
