@@ -9,14 +9,69 @@
 import UIKit
 
 class DashboardViewController: UIViewController {
+    
+    // MARK: - Properties -
+    
+    private let welcomeUserTextLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Welcome User"
+        label.textColor = UIColor.black
+        label.font = UIFont.init(name: "Verdana", size: 30)
+        return label
+    }()
+    
+    private let dashboardButtonsVerticalStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.distribution = .equalSpacing
+        //stackView.addArrangedSubview(view)
+        return stackView
+    }()
+    
+    private let myProfileButton: UIButton = {
+        let button = UIButton()
+        
+        return button
+    }()
 
+    // MARK: - LifeCycle Functions -
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
     }
+
+    // MARK: - Helper Functions -
+//    private func buttonSetup() {
+//        for button in adminButtons {
+//            button.setWidth(width: 190)
+//            button.setHeight(height: 120)
+//            button.layer.cornerRadius = 12.0
+//            button.layer.borderWidth = 1.0
+//            button.layer.borderColor = UIColor.white.cgColor
+//            button.tintColor = .white
+//            button.titleLabel?.font = UIFont(name: "Futura", size: 15)
+//
+//            // Shadow
+//            button.layer.shadowColor = UIColor.gray.cgColor
+//            button.layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
+//            button.layer.shadowRadius = 5.0
+//            button.layer.shadowOpacity = 1.0
+//        }
+//    }
     
     private func configureUI() {
-        Helper.configureGradientLayer(view: view)
+        navigationController?.navigationBar.isHidden = true
+        
+        UIHelper.configureGradientLayer(view: view)
+        
+        view.addSubview(welcomeUserTextLabel)
+        welcomeUserTextLabel.centerX(inView: view)
+        welcomeUserTextLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 20)
+        welcomeUserTextLabel.setDimensions(height: 150, width: 250)
+        
+        view.addSubview(dashboardButtonsVerticalStackView)
+        
     }
 
     /*
