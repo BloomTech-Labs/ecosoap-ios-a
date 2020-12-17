@@ -22,18 +22,45 @@ class DashboardViewController: UIViewController {
     
     private let dashboardButtonsVerticalStackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.axis = .horizontal
+        stackView.axis = .vertical
         stackView.distribution = .equalSpacing
-        //stackView.addArrangedSubview(view)
         return stackView
     }()
     
+    // MARK: - Buttons -
+    
     private let myProfileButton: UIButton = {
         let button = UIButton()
-        
+        button.setTitle("My Profile", for: .normal)
+        return button
+    }()
+    
+    private let allHubsButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("All Hubs", for: .normal)
+        return button
+    }()
+    
+    private let partnershipsButton: UIButton = {
+       let button = UIButton()
+        button.setTitle("Partnerships", for: .normal)
         return button
     }()
 
+    private let corporateSponsorsButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Corporate SponsorsButton", for: .normal)
+        return button
+    }()
+    
+    private let ngoSponsorsButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("NGO Sponsors", for: .normal)
+        return button
+    }()
+    
+    private lazy var dashboardButtons: [UIButton] = [myProfileButton, allHubsButton, partnershipsButton, corporateSponsorsButton, ngoSponsorsButton]
+    
     // MARK: - LifeCycle Functions -
     
     override func viewDidLoad() {
@@ -42,23 +69,19 @@ class DashboardViewController: UIViewController {
     }
 
     // MARK: - Helper Functions -
-//    private func buttonSetup() {
-//        for button in adminButtons {
-//            button.setWidth(width: 190)
-//            button.setHeight(height: 120)
-//            button.layer.cornerRadius = 12.0
-//            button.layer.borderWidth = 1.0
-//            button.layer.borderColor = UIColor.white.cgColor
-//            button.tintColor = .white
-//            button.titleLabel?.font = UIFont(name: "Futura", size: 15)
-//
-//            // Shadow
-//            button.layer.shadowColor = UIColor.gray.cgColor
-//            button.layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
-//            button.layer.shadowRadius = 5.0
-//            button.layer.shadowOpacity = 1.0
-//        }
-//    }
+    private func buttonSetup() {
+        for button in dashboardButtons {
+            button.setWidth(width: 190)
+            button.setHeight(height: 120)
+            button.layer.cornerRadius = 12.0
+            button.layer.borderWidth = 1.0
+            button.layer.borderColor = UIColor.white.cgColor
+            button.tintColor = .white
+            button.titleLabel?.font = UIFont(name: "Futura", size: 15)
+            
+            UIHelper.configureShadow(view: button, color: UIColor.black.cgColor)
+        }
+    }
     
     private func configureUI() {
         navigationController?.navigationBar.isHidden = true
@@ -71,7 +94,21 @@ class DashboardViewController: UIViewController {
         welcomeUserTextLabel.setDimensions(height: 150, width: 250)
         
         view.addSubview(dashboardButtonsVerticalStackView)
+        view.addSubview(myProfileButton)
+        view.addSubview(allHubsButton)
+        view.addSubview(partnershipsButton)
+        view.addSubview(corporateSponsorsButton)
+        view.addSubview(ngoSponsorsButton)
         
+        dashboardButtonsVerticalStackView.addArrangedSubview(myProfileButton)
+        dashboardButtonsVerticalStackView.addArrangedSubview(allHubsButton)
+        dashboardButtonsVerticalStackView.addArrangedSubview(partnershipsButton)
+        dashboardButtonsVerticalStackView.addArrangedSubview(corporateSponsorsButton)
+        dashboardButtonsVerticalStackView.addArrangedSubview(ngoSponsorsButton)
+        
+        dashboardButtonsVerticalStackView.anchor(top: welcomeUserTextLabel.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 8, paddingLeft: 30, paddingRight: 30)
+        
+        buttonSetup()
     }
 
     /*
