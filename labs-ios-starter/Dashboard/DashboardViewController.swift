@@ -27,39 +27,7 @@ class DashboardViewController: UIViewController {
         return stackView
     }()
     
-    // MARK: - Buttons -
-    
-    private let myProfileButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("My Profile", for: .normal)
-        return button
-    }()
-    
-    private let allHubsButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("All Hubs", for: .normal)
-        return button
-    }()
-    
-    private let partnershipsButton: UIButton = {
-       let button = UIButton()
-        button.setTitle("Partnerships", for: .normal)
-        return button
-    }()
-
-    private let corporateSponsorsButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Corporate SponsorsButton", for: .normal)
-        return button
-    }()
-    
-    private let ngoSponsorsButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("NGO Sponsors", for: .normal)
-        return button
-    }()
-    
-    private lazy var dashboardButtons: [UIButton] = [myProfileButton, allHubsButton, partnershipsButton, corporateSponsorsButton, ngoSponsorsButton]
+    private var dashboardButtons = [UIButton]()
     
     // MARK: - LifeCycle Functions -
     
@@ -69,8 +37,13 @@ class DashboardViewController: UIViewController {
     }
 
     // MARK: - Helper Functions -
-    private func buttonSetup() {
-        for button in dashboardButtons {
+    
+    private func buttonSetup() -> [UIButton] {
+        let titles = ["My Profile", "All Hubs", "Partnerships", "Corporate SponsorsButton", "NGO Sponsors"]
+        var buttons = [UIButton]()
+        titles.forEach {
+            let button = UIButton()
+            button.setTitle($0, for: .normal)
             button.setWidth(width: 190)
             button.setHeight(height: 120)
             button.layer.cornerRadius = 12.0
@@ -78,47 +51,36 @@ class DashboardViewController: UIViewController {
             button.layer.borderColor = UIColor.white.cgColor
             button.tintColor = .white
             button.titleLabel?.font = UIFont(name: "Futura", size: 15)
-            
             UIHelper.configureShadow(view: button, color: UIColor.black.cgColor)
+            buttons.append(button)
         }
+            return buttons
     }
     
     private func configureUI() {
         navigationController?.navigationBar.isHidden = true
         
         UIHelper.configureGradientLayer(view: view)
-        
+        self.dashboardButtons = buttonSetup()
         view.addSubview(welcomeUserTextLabel)
+        view.addSubview(dashboardButtonsVerticalStackView)
+        
+        view.addSubview(dashboardButtons[0])
+        view.addSubview(dashboardButtons[1])
+        view.addSubview(dashboardButtons[2])
+        view.addSubview(dashboardButtons[3])
+        view.addSubview(dashboardButtons[4])
+        
         welcomeUserTextLabel.centerX(inView: view)
         welcomeUserTextLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 20)
         welcomeUserTextLabel.setDimensions(height: 150, width: 250)
         
-        view.addSubview(dashboardButtonsVerticalStackView)
-        view.addSubview(myProfileButton)
-        view.addSubview(allHubsButton)
-        view.addSubview(partnershipsButton)
-        view.addSubview(corporateSponsorsButton)
-        view.addSubview(ngoSponsorsButton)
-        
-        dashboardButtonsVerticalStackView.addArrangedSubview(myProfileButton)
-        dashboardButtonsVerticalStackView.addArrangedSubview(allHubsButton)
-        dashboardButtonsVerticalStackView.addArrangedSubview(partnershipsButton)
-        dashboardButtonsVerticalStackView.addArrangedSubview(corporateSponsorsButton)
-        dashboardButtonsVerticalStackView.addArrangedSubview(ngoSponsorsButton)
+        dashboardButtonsVerticalStackView.addArrangedSubview(dashboardButtons[0])
+        dashboardButtonsVerticalStackView.addArrangedSubview(dashboardButtons[1])
+        dashboardButtonsVerticalStackView.addArrangedSubview(dashboardButtons[2])
+        dashboardButtonsVerticalStackView.addArrangedSubview(dashboardButtons[3])
+        dashboardButtonsVerticalStackView.addArrangedSubview(dashboardButtons[4])
         
         dashboardButtonsVerticalStackView.anchor(top: welcomeUserTextLabel.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 8, paddingLeft: 30, paddingRight: 30)
-        
-        buttonSetup()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
