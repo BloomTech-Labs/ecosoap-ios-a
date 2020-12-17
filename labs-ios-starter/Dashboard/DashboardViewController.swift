@@ -27,6 +27,24 @@ class DashboardViewController: UIViewController {
         return stackView
     }()
     
+    private let topHorizontalStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        return stackView
+    }()
+    
+    private let middleHorizontalStackView: UIStackView = {
+       let stackView = UIStackView()
+        stackView.axis = .horizontal
+        return stackView
+    }()
+    
+    private let bottomHorizontalStackView: UIStackView = {
+       let stackView = UIStackView()
+        stackView.axis = .horizontal
+        return stackView
+    }()
+    
     private var dashboardButtons = [UIButton]()
     
     // MARK: - LifeCycle Functions -
@@ -61,10 +79,12 @@ class DashboardViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         
         UIHelper.configureGradientLayer(view: view)
-        self.dashboardButtons = buttonSetup()
+        dashboardButtons = buttonSetup()
         view.addSubview(welcomeUserTextLabel)
         view.addSubview(dashboardButtonsVerticalStackView)
-        
+        view.addSubview(topHorizontalStackView)
+        view.addSubview(middleHorizontalStackView)
+        view.addSubview(bottomHorizontalStackView)
         view.addSubview(dashboardButtons[0])
         view.addSubview(dashboardButtons[1])
         view.addSubview(dashboardButtons[2])
@@ -76,10 +96,16 @@ class DashboardViewController: UIViewController {
         welcomeUserTextLabel.setDimensions(height: 150, width: 250)
         
         dashboardButtonsVerticalStackView.addArrangedSubview(dashboardButtons[0])
-        dashboardButtonsVerticalStackView.addArrangedSubview(dashboardButtons[1])
-        dashboardButtonsVerticalStackView.addArrangedSubview(dashboardButtons[2])
-        dashboardButtonsVerticalStackView.addArrangedSubview(dashboardButtons[3])
-        dashboardButtonsVerticalStackView.addArrangedSubview(dashboardButtons[4])
+        topHorizontalStackView.addArrangedSubview(dashboardButtons[0])
+        
+        middleHorizontalStackView.addArrangedSubview(dashboardButtons[1])
+        middleHorizontalStackView.addArrangedSubview(dashboardButtons[2])
+        bottomHorizontalStackView.addArrangedSubview(dashboardButtons[3])
+        bottomHorizontalStackView.addArrangedSubview(dashboardButtons[4])
+        
+        dashboardButtonsVerticalStackView.addArrangedSubview(topHorizontalStackView)
+        dashboardButtonsVerticalStackView.addArrangedSubview(middleHorizontalStackView)
+        dashboardButtonsVerticalStackView.addArrangedSubview(bottomHorizontalStackView)
         
         dashboardButtonsVerticalStackView.anchor(top: welcomeUserTextLabel.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 8, paddingLeft: 30, paddingRight: 30)
     }
