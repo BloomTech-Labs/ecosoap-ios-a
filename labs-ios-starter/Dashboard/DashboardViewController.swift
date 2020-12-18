@@ -23,7 +23,7 @@ class DashboardViewController: UIViewController {
     private let dashboardButtonsVerticalStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.distribution = .equalSpacing
+        stackView.distribution = .fillEqually
         return stackView
     }()
     
@@ -36,12 +36,14 @@ class DashboardViewController: UIViewController {
     private let middleHorizontalStackView: UIStackView = {
        let stackView = UIStackView()
         stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
         return stackView
     }()
     
     private let bottomHorizontalStackView: UIStackView = {
        let stackView = UIStackView()
         stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
         return stackView
     }()
     
@@ -57,7 +59,7 @@ class DashboardViewController: UIViewController {
     // MARK: - Helper Functions -
     
     private func buttonSetup() -> [UIButton] {
-        let titles = ["My Profile", "All Hubs", "Partnerships", "Corporate SponsorsButton", "NGO Sponsors"]
+        let titles = ["My Profile", "All Hubs", "Partnerships", "Corporate Sponsors", "NGO Sponsors"]
         var buttons = [UIButton]()
         titles.forEach {
             let button = UIButton()
