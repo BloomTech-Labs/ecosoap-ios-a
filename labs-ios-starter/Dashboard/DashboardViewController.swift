@@ -93,25 +93,6 @@ class DashboardViewController: UIViewController {
     }
     // MARK: - Helper Functions -
     
-    private func buttonSetup() -> [UIButton] {
-        let titles = ["My Profile", "All Hubs", "Partnerships", "Corporate Sponsors", "NGO Sponsors"]
-        var buttons = [UIButton]()
-        titles.forEach {
-            let button = UIButton()
-            button.setTitle($0, for: .normal)
-            button.setTitleColor(.black, for: .normal)
-            button.setWidth(width: 190)
-            button.setHeight(height: 120)
-            button.layer.cornerRadius = 12.0
-            button.layer.borderWidth = 2.0
-            button.layer.borderColor = UIColor.black.cgColor
-            button.titleLabel?.font = UIFont(name: "Futura", size: 16)
-            UIHelper.configureShadow(view: button, color: UIColor.black.cgColor)
-            buttons.append(button)
-        }
-            return buttons
-    }
-    
     private func configureUI() {
         navigationController?.navigationBar.isHidden = true
         
@@ -141,5 +122,24 @@ class DashboardViewController: UIViewController {
         dashboardButtonsVerticalStackView.addArrangedSubview(bottomHorizontalStackView)
         
         dashboardButtonsVerticalStackView.anchor(top: welcomeUserTextLabel.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 8, paddingLeft: 30, paddingRight: 30)
+    }
+    
+    private func buttonSetup() -> [UIButton] {
+        let titles = ["My Profile", "All Hubs", "Partnerships", "Corporate Sponsors", "NGO Sponsors"]
+        var buttons = [UIButton]()
+        titles.forEach {
+            let button = UIButton()
+            button.setTitle($0, for: .normal)
+            button.setTitleColor(.black, for: .normal)
+            button.setWidth(width: 190)
+            button.setHeight(height: 120)
+            button.layer.cornerRadius = 12.0
+            button.layer.borderWidth = 2.0
+            button.layer.borderColor = UIColor.black.cgColor
+            button.titleLabel?.font = UIFont(name: "Futura", size: 16)
+            UIHelper.configureShadow(view: button, color: UIColor.black.cgColor)
+            buttons.append(button)
+        }
+            return buttons
     }
 }

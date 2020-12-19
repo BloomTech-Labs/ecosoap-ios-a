@@ -60,6 +60,8 @@ class LoginViewController: UIViewController {
         .darkContent
     }
     
+    // MARK: - LifeCycle Functions -
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -73,12 +75,29 @@ class LoginViewController: UIViewController {
                                                object: nil,
                                                queue: .main,
                                                using: alertUserOfExpiredCredentials)
+    }
+    
+    // MARK: - Actions -
+    
+    @objc func handleShowSignUp() {
         
     }
     
-    // MARK: - Actions
+    @objc func logInButtonTapped() {
+        UIApplication.shared.open(ProfileController.shared.oktaAuth.identityAuthURL()!)
+    }
     
+    // MARK: - Private Methods
     
+    private func alertUserOfExpiredCredentials(_ notification: Notification) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.presentSimpleAlert(with: "Your Okta credentials have expired",
+                                    message: "Please sign in again",
+                                    preferredStyle: .alert,
+                                    dismissText: "Dimiss")
+        }
+    }
+
     // MARK: - UI Configuration Methods -
     
     private func configureUI() {
@@ -102,27 +121,6 @@ class LoginViewController: UIViewController {
         
         view.addSubview(dontHaveAccountButton)
         dontHaveAccountButton.anchor(left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingLeft: 32, paddingRight: 32)
-    }
-    
-    // MARK: - Actions -
-    
-    @objc func handleShowSignUp() {
-        
-    }
-    
-    @objc func logInButtonTapped() {
-        UIApplication.shared.open(ProfileController.shared.oktaAuth.identityAuthURL()!)
-    }
-    
-    // MARK: - Private Methods
-    
-    private func alertUserOfExpiredCredentials(_ notification: Notification) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.presentSimpleAlert(with: "Your Okta credentials have expired",
-                                    message: "Please sign in again",
-                                    preferredStyle: .alert,
-                                    dismissText: "Dimiss")
-        }
     }
     
     // MARK: Notification Handling
