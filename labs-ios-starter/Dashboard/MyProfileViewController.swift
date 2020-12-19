@@ -13,9 +13,11 @@ class MyProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        
     }
     
     private func configureUI() {
-        
+        navigationController?.navigationBar.isHidden = false
+        view.backgroundColor = .red
     }
 }

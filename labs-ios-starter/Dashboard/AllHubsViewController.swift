@@ -16,7 +16,8 @@ class AllHubsViewController: UIViewController {
     }
     
     private func configureUI() {
-        
+        navigationController?.navigationBar.isHidden = false
+        view.backgroundColor = .blue
     }
 }
 

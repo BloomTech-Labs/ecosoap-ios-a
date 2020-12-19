@@ -60,25 +60,35 @@ class DashboardViewController: UIViewController {
         configureUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationController?.navigationBar.isHidden = true
+    }
+    
     // MARK: - Actions -
     
     @objc func myProfileButtonTapped(_ sender: UIButton!) {
+        navigationController?.pushViewController(MyProfileViewController(), animated: true)
         print("My Profile Button tapped")
     }
     
     @objc func allHubsButtonTapped(_ sender: UIButton!) {
+        navigationController?.pushViewController(AllHubsViewController(), animated: true)
         print("All Hubs Button Tapped")
     }
     
     @objc func partnershipsButtonTapped(_ sender: UIButton!) {
+        navigationController?.pushViewController(PartnershipsViewController(), animated: true)
         print("Partnerships Button Tapped")
     }
 
     @objc func corporateSponsorsButtonTapped(_ sender: UIButton!) {
+        navigationController?.pushViewController(CorporateSponsorsViewController(), animated: true)
         print("Corporate Sponsors Button Tapped")
     }
     
     @objc func ngoSponsorsButtonTapped(_ sender: UIButton!) {
+        navigationController?.pushViewController(NGOSponsorsViewController(), animated: true)
         print("NGO Sponsors Button Tapped")
     }
     // MARK: - Helper Functions -

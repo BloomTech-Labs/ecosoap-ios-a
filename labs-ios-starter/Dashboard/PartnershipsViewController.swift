@@ -16,7 +16,8 @@ class PartnershipsViewController: UIViewController {
     }
     
     private func configureUI() {
-        
+        navigationController?.navigationBar.isHidden = false
+        view.backgroundColor = .green
     }
 }
 
