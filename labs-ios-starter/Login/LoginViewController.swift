@@ -84,17 +84,14 @@ class LoginViewController: UIViewController {
     private func configureUI() {
         navigationController?.navigationBar.isHidden = true
         
-        Helper.configureGradientLayer(view: view)
+        UIHelper.configureGradientLayer(view: view)
         
         view.addSubview(ecoSoapBankLogo)
         ecoSoapBankLogo.centerX(inView: view)
         ecoSoapBankLogo.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 30)
         ecoSoapBankLogo.setDimensions(height: 140, width: 150)
         
-        ecoSoapBankLogo.layer.shadowColor = UIColor.black.cgColor
-        ecoSoapBankLogo.layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
-        ecoSoapBankLogo.layer.shadowRadius = 5.0
-        ecoSoapBankLogo.layer.shadowOpacity = 1.0
+        UIHelper.configureShadow(view: ecoSoapBankLogo, color: UIColor.black.cgColor)
         
         view.addSubview(missionStatementTextLabel)
         missionStatementTextLabel.anchor(top: ecoSoapBankLogo.bottomAnchor, left: view.leftAnchor, paddingTop: 30, paddingLeft: 55, paddingRight: 45, width: 300, height: 200)
