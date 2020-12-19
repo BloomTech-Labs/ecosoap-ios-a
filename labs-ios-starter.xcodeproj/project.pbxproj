@@ -23,6 +23,7 @@
 		46BF10BE24D388FF001C6753 /* UIViewController+SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF10BD24D388FF001C6753 /* UIViewController+SimpleAlert.swift */; };
 		46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */; };
 		5A17BC8E258A4294007783BB /* DashboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A17BC8D258A4294007783BB /* DashboardButton.swift */; };
+		5A249B92258CC2540003580C /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A249B91258CC2540003580C /* UIView.swift */; };
 		5ADD8328257F7E8D00A6E6A3 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADD8327257F7E8D00A6E6A3 /* DashboardViewController.swift */; };
 		5ADD832B257F82AB00A6E6A3 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADD832A257F82AB00A6E6A3 /* UIHelper.swift */; };
 		5ADEA1F12579BEB2000E28B2 /* ProgrammaticConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADEA1F02579BEB2000E28B2 /* ProgrammaticConstraints.swift */; };
@@ -53,6 +54,7 @@
 		46BF10BD24D388FF001C6753 /* UIViewController+SimpleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+SimpleAlert.swift"; sourceTree = "<group>"; };
 		46C2BC9124D432F90077E49D /* ProfileTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabBarViewController.swift; sourceTree = "<group>"; };
 		5A17BC8D258A4294007783BB /* DashboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardButton.swift; sourceTree = "<group>"; };
+		5A249B91258CC2540003580C /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		5ADD8327257F7E8D00A6E6A3 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		5ADD832A257F82AB00A6E6A3 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		5ADEA1F02579BEB2000E28B2 /* ProgrammaticConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgrammaticConstraints.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				5ADEA21A257B7A3E000E28B2 /* UIColor.swift */,
 				46BEB4E624C98D8900FE0CD1 /* Notifications.swift */,
 				46BF10BD24D388FF001C6753 /* UIViewController+SimpleAlert.swift */,
+				5A249B91258CC2540003580C /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				46C2BC9224D432F90077E49D /* ProfileTabBarViewController.swift in Sources */,
 				5ADEA2072579DF1D000E28B2 /* API.swift in Sources */,
 				463AD24324CF275900447BB8 /* ProfileDetailViewController.swift in Sources */,
+				5A249B92258CC2540003580C /* UIView.swift in Sources */,
 				46BEB4E524C98CDC00FE0CD1 /* LoginViewController.swift in Sources */,
 				5ADEA1F12579BEB2000E28B2 /* ProgrammaticConstraints.swift in Sources */,
 				5ADEA20A2579DF54000E28B2 /* Network.swift in Sources */,

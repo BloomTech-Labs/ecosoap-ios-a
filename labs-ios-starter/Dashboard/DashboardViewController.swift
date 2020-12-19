@@ -12,10 +12,17 @@ class DashboardViewController: UIViewController {
     
     // MARK: - Properties -
     
+    lazy var myProfileButton = dashboardButtons[0]
+    lazy var allHubsButton = dashboardButtons[1]
+    lazy var partnershipsButton = dashboardButtons[2]
+    lazy var corporateSponsorsButton = dashboardButtons[3]
+    lazy var ngoSponsorsButton = dashboardButtons[4]
+
     private let welcomeUserTextLabel: UILabel = {
         let label = UILabel()
         label.text = "Welcome User"
         label.textColor = UIColor.black
+        label.textAlignment = .center
         label.font = UIFont.init(name: "Verdana", size: 30)
         return label
     }()
@@ -24,12 +31,7 @@ class DashboardViewController: UIViewController {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
-        return stackView
-    }()
-    
-    private let topHorizontalStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
+        stackView.spacing = 8
         return stackView
     }()
     
@@ -37,6 +39,7 @@ class DashboardViewController: UIViewController {
        let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
+        stackView.spacing = 8
         return stackView
     }()
     
@@ -44,6 +47,7 @@ class DashboardViewController: UIViewController {
        let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
+        stackView.spacing = 8
         return stackView
     }()
     
@@ -55,7 +59,28 @@ class DashboardViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
     }
+    
+    // MARK: - Actions -
+    
+    @objc func myProfileButtonTapped(_ sender: UIButton!) {
+        print("My Profile Button tapped")
+    }
+    
+    @objc func allHubsButtonTapped(_ sender: UIButton!) {
+        print("All Hubs Button Tapped")
+    }
+    
+    @objc func partnershipsButtonTapped(_ sender: UIButton!) {
+        print("Partnerships Button Tapped")
+    }
 
+    @objc func corporateSponsorsButtonTapped(_ sender: UIButton!) {
+        print("Corporate Sponsors Button Tapped")
+    }
+    
+    @objc func ngoSponsorsButtonTapped(_ sender: UIButton!) {
+        print("NGO Sponsors Button Tapped")
+    }
     // MARK: - Helper Functions -
     
     private func buttonSetup() -> [UIButton] {
@@ -64,13 +89,13 @@ class DashboardViewController: UIViewController {
         titles.forEach {
             let button = UIButton()
             button.setTitle($0, for: .normal)
+            button.setTitleColor(.black, for: .normal)
             button.setWidth(width: 190)
             button.setHeight(height: 120)
             button.layer.cornerRadius = 12.0
-            button.layer.borderWidth = 1.0
-            button.layer.borderColor = UIColor.white.cgColor
-            button.tintColor = .white
-            button.titleLabel?.font = UIFont(name: "Futura", size: 15)
+            button.layer.borderWidth = 2.0
+            button.layer.borderColor = UIColor.black.cgColor
+            button.titleLabel?.font = UIFont(name: "Futura", size: 16)
             UIHelper.configureShadow(view: button, color: UIColor.black.cgColor)
             buttons.append(button)
         }
@@ -84,28 +109,31 @@ class DashboardViewController: UIViewController {
         dashboardButtons = buttonSetup()
         view.addSubview(welcomeUserTextLabel)
         view.addSubview(dashboardButtonsVerticalStackView)
-        view.addSubview(topHorizontalStackView)
         view.addSubview(middleHorizontalStackView)
         view.addSubview(bottomHorizontalStackView)
-        view.addSubview(dashboardButtons[0])
-        view.addSubview(dashboardButtons[1])
-        view.addSubview(dashboardButtons[2])
-        view.addSubview(dashboardButtons[3])
-        view.addSubview(dashboardButtons[4])
+        view.addSubview(myProfileButton)
+        view.addSubview(allHubsButton)
+        view.addSubview(partnershipsButton)
+        view.addSubview(corporateSponsorsButton)
+        view.addSubview(ngoSponsorsButton)
+        
+        myProfileButton.addTarget(self, action: #selector(myProfileButtonTapped(_:)), for: .touchUpInside)
+        allHubsButton.addTarget(self, action: #selector(allHubsButtonTapped(_:)), for: .touchUpInside)
+        partnershipsButton.addTarget(self, action: #selector(partnershipsButtonTapped(_:)), for: .touchUpInside)
+        corporateSponsorsButton.addTarget(self, action: #selector(corporateSponsorsButtonTapped(_:)), for: .touchUpInside)
+        ngoSponsorsButton.addTarget(self, action: #selector(ngoSponsorsButtonTapped(_:)), for: .touchUpInside)
         
         welcomeUserTextLabel.centerX(inView: view)
         welcomeUserTextLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 20)
         welcomeUserTextLabel.setDimensions(height: 150, width: 250)
         
-        dashboardButtonsVerticalStackView.addArrangedSubview(dashboardButtons[0])
-        topHorizontalStackView.addArrangedSubview(dashboardButtons[0])
+        dashboardButtonsVerticalStackView.addArrangedSubview(myProfileButton)
         
-        middleHorizontalStackView.addArrangedSubview(dashboardButtons[1])
-        middleHorizontalStackView.addArrangedSubview(dashboardButtons[2])
-        bottomHorizontalStackView.addArrangedSubview(dashboardButtons[3])
-        bottomHorizontalStackView.addArrangedSubview(dashboardButtons[4])
+        middleHorizontalStackView.addArrangedSubview(allHubsButton)
+        middleHorizontalStackView.addArrangedSubview(partnershipsButton)
+        bottomHorizontalStackView.addArrangedSubview(corporateSponsorsButton)
+        bottomHorizontalStackView.addArrangedSubview(ngoSponsorsButton)
         
-        dashboardButtonsVerticalStackView.addArrangedSubview(topHorizontalStackView)
         dashboardButtonsVerticalStackView.addArrangedSubview(middleHorizontalStackView)
         dashboardButtonsVerticalStackView.addArrangedSubview(bottomHorizontalStackView)
         
