@@ -107,15 +107,8 @@ class DashboardViewController: UIViewController {
         
         UIHelper.configureGradientLayer(view: view)
         dashboardButtons = buttonSetup()
-        view.addSubview(welcomeUserTextLabel)
-        view.addSubview(dashboardButtonsVerticalStackView)
-        view.addSubview(middleHorizontalStackView)
-        view.addSubview(bottomHorizontalStackView)
-        view.addSubview(myProfileButton)
-        view.addSubview(allHubsButton)
-        view.addSubview(partnershipsButton)
-        view.addSubview(corporateSponsorsButton)
-        view.addSubview(ngoSponsorsButton)
+        
+        view.addSubviews(subviews: welcomeUserTextLabel,dashboardButtonsVerticalStackView, middleHorizontalStackView, bottomHorizontalStackView, myProfileButton, allHubsButton, partnershipsButton, corporateSponsorsButton, ngoSponsorsButton)
         
         myProfileButton.addTarget(self, action: #selector(myProfileButtonTapped(_:)), for: .touchUpInside)
         allHubsButton.addTarget(self, action: #selector(allHubsButtonTapped(_:)), for: .touchUpInside)
