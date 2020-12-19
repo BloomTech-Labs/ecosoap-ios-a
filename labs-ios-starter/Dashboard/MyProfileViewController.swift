@@ -22,15 +22,7 @@ class MyProfileViewController: UIViewController {
     
     // MARK: - Properties -
     
-    private let myProfileTextLabel: UILabel = {
-        let label = UILabel()
-        label.text = "My Profile"
-        label.textColor = UIColor.black
-        label.textAlignment = .center
-        label.font = UIFont.init(name: "Verdana", size: 30)
-        return label
-    }()
-    
+    // MARK: - TextLabels -
     private let firstNameTextLabel: UILabel = {
         let label = UILabel()
         label.text = "First Name"
@@ -67,7 +59,7 @@ class MyProfileViewController: UIViewController {
         return label
     }()
     
-    private let LastNameTextLabel: UILabel = {
+    private let lastNameTextLabel: UILabel = {
         let label = UILabel()
         label.text = "Last Name"
         label.textColor = UIColor.black
@@ -139,6 +131,15 @@ class MyProfileViewController: UIViewController {
         return label
     }()
     
+    // MARK: - StackView -
+    private let verticalStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.spacing = 8
+        return stackView
+    }()
+    
     // MARK: - LifeCycle Functions -
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -151,21 +152,24 @@ class MyProfileViewController: UIViewController {
     
     private func configureUI() {
         navigationController?.navigationBar.isHidden = false
+        navigationController?.title = "My Profile"
         UIHelper.configureGradientLayer(view: view)
         
-        view.addSubviews(subviews: myProfileTextLabel, firstNameTextLabel, usersFirstNameTextLabel, middleNameTextLabel, usersMiddleNameTextLabel, LastNameTextLabel, usersLastNameTextLabel, emailTextLabel, usersEmailTextLabel, skypeTextLabel, usersSkypeTextLabel, phoneNumberTextLabel, usersPhoneNumberTextLabel)
+        view.addSubviews(subviews:verticalStackView, firstNameTextLabel, usersFirstNameTextLabel, middleNameTextLabel, usersMiddleNameTextLabel, lastNameTextLabel, usersLastNameTextLabel, emailTextLabel, usersEmailTextLabel, skypeTextLabel, usersSkypeTextLabel, phoneNumberTextLabel, usersPhoneNumberTextLabel)
         
-        myProfileTextLabel.centerX(inView: view)
-        myProfileTextLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 8)
-        myProfileTextLabel.setDimensions(height: 150, width: 250)
+        verticalStackView.addArrangedSubview(firstNameTextLabel)
+        verticalStackView.addArrangedSubview(usersFirstNameTextLabel)
+        verticalStackView.addArrangedSubview(middleNameTextLabel)
+        verticalStackView.addArrangedSubview(usersMiddleNameTextLabel)
+        verticalStackView.addArrangedSubview(lastNameTextLabel)
+        verticalStackView.addArrangedSubview(usersLastNameTextLabel)
+        verticalStackView.addArrangedSubview(emailTextLabel)
+        verticalStackView.addArrangedSubview(usersEmailTextLabel)
+        verticalStackView.addArrangedSubview(skypeTextLabel)
+        verticalStackView.addArrangedSubview(usersSkypeTextLabel)
+        verticalStackView.addArrangedSubview(phoneNumberTextLabel)
+        verticalStackView.addArrangedSubview(usersPhoneNumberTextLabel)
         
-        
+        verticalStackView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 20, paddingLeft: 30, paddingRight: 30)
     }
 }
-
-// TODO: first name label and label that shows the user's name
-//       middle name label ""
-//       last name ""
-//       email ""
-//       Skype ""
-//       Phone number ""
