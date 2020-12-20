@@ -25,7 +25,7 @@ class MyProfileViewController: UIViewController {
     // MARK: - TextLabels -
     private let firstNameTextLabel: UILabel = {
         let label = UILabel()
-        label.text = "First Name"
+        label.text = "First Name:"
         label.textColor = UIColor.black
         label.textAlignment = .left
         label.font = UIFont.init(name: "Verdana", size: 14)
@@ -43,7 +43,7 @@ class MyProfileViewController: UIViewController {
     
     private let middleNameTextLabel: UILabel = {
         let label = UILabel()
-        label.text = "Middle Name"
+        label.text = "Middle Name:"
         label.textColor = UIColor.black
         label.textAlignment = .left
         label.font = UIFont.init(name: "Verdana", size: 14)
@@ -61,7 +61,7 @@ class MyProfileViewController: UIViewController {
     
     private let lastNameTextLabel: UILabel = {
         let label = UILabel()
-        label.text = "Last Name"
+        label.text = "Last Name:"
         label.textColor = UIColor.black
         label.textAlignment = .left
         label.font = UIFont.init(name: "Verdana", size: 14)
@@ -79,7 +79,7 @@ class MyProfileViewController: UIViewController {
     
     private let emailTextLabel: UILabel = {
         let label = UILabel()
-        label.text = "E-mail"
+        label.text = "E-mail:"
         label.textColor = UIColor.black
         label.textAlignment = .left
         label.font = UIFont.init(name: "Verdana", size: 14)
@@ -97,7 +97,7 @@ class MyProfileViewController: UIViewController {
     
     private let skypeTextLabel: UILabel = {
         let label = UILabel()
-        label.text = "Skype"
+        label.text = "Skype:"
         label.textColor = UIColor.black
         label.textAlignment = .left
         label.font = UIFont.init(name: "Verdana", size: 14)
@@ -115,7 +115,7 @@ class MyProfileViewController: UIViewController {
     
     private let phoneNumberTextLabel: UILabel = {
         let label = UILabel()
-        label.text = "Phone Number"
+        label.text = "Phone Number:"
         label.textColor = UIColor.black
         label.textAlignment = .left
         label.font = UIFont.init(name: "Verdana", size: 14)
@@ -144,18 +144,34 @@ class MyProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        configureNavigationBar()
     }
     
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(true)
+//        navigationController?.navigationBar.overrideUserInterfaceStyle = .dark
+//    }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(true)
+//        configureNavigationBar()
+//    }
+
     // MARK: - Actions -
     
+    @objc private func editMyProfileBarButtonTapped() {
+        print("Edit Bar Button Item Tapped")
+}
     // MARK: - Helper Functions -
     
     private func configureUI() {
         navigationController?.navigationBar.isHidden = false
-        navigationController?.title = "My Profile"
-        UIHelper.configureGradientLayer(view: view)
+        navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit Details", style: .plain, target: self, action: #selector(editMyProfileBarButtonTapped))
         
-        view.addSubviews(subviews:verticalStackView, firstNameTextLabel, usersFirstNameTextLabel, middleNameTextLabel, usersMiddleNameTextLabel, lastNameTextLabel, usersLastNameTextLabel, emailTextLabel, usersEmailTextLabel, skypeTextLabel, usersSkypeTextLabel, phoneNumberTextLabel, usersPhoneNumberTextLabel)
+        UIHelper.configureGradientLayer(view: view)
+
+        view.addSubviews(subviews: verticalStackView, firstNameTextLabel, usersFirstNameTextLabel, middleNameTextLabel, usersMiddleNameTextLabel, lastNameTextLabel, usersLastNameTextLabel, emailTextLabel, usersEmailTextLabel, skypeTextLabel, usersSkypeTextLabel, phoneNumberTextLabel, usersPhoneNumberTextLabel)
         
         verticalStackView.addArrangedSubview(firstNameTextLabel)
         verticalStackView.addArrangedSubview(usersFirstNameTextLabel)
@@ -171,5 +187,21 @@ class MyProfileViewController: UIViewController {
         verticalStackView.addArrangedSubview(usersPhoneNumberTextLabel)
         
         verticalStackView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 20, paddingLeft: 30, paddingRight: 30)
+    }
+    
+    func configureNavigationBar() {
+        let appearance = UINavigationBarAppearance()
+//        appearance.configureWithOpaqueBackground()
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
+        appearance.backgroundColor = UIColor.esbGreen?.lighter(componentDelta: 0.2)
+        
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = "My Profile"
+        navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.isTranslucent = true
     }
 }
