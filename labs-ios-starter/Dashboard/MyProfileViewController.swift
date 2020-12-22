@@ -147,27 +147,16 @@ class MyProfileViewController: UIViewController {
         configureNavigationBar()
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(true)
-//        navigationController?.navigationBar.overrideUserInterfaceStyle = .dark
-//    }
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(true)
-//        configureNavigationBar()
-//    }
-
     // MARK: - Actions -
     
-    @objc private func editMyProfileBarButtonTapped() {
-        print("Edit Bar Button Item Tapped")
-}
+//    @objc private func editMyProfileBarButtonTapped() {
+//        print("Edit Bar Button Item Tapped")
+//}
     // MARK: - Helper Functions -
     
     private func configureUI() {
         navigationController?.navigationBar.isHidden = false
-        navigationController?.navigationBar.tintColor = .black
-        navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit Details", style: .plain, target: self, action: #selector(editMyProfileBarButtonTapped))
+//        navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit Details", style: .plain, target: self, action: #selector(editMyProfileBarButtonTapped))
         
         UIHelper.configureGradientLayer(view: view)
 
@@ -191,7 +180,6 @@ class MyProfileViewController: UIViewController {
     
     func configureNavigationBar() {
         let appearance = UINavigationBarAppearance()
-//        appearance.configureWithOpaqueBackground()
         appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
         appearance.backgroundColor = UIColor.esbGreen?.lighter(componentDelta: 0.2)
         
