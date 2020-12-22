@@ -11,7 +11,6 @@ import UIKit
 class DashboardViewController: UIViewController {
     
     // MARK: - Properties -
-    
     lazy var myProfileButton = dashboardButtons[0]
     lazy var allHubsButton = dashboardButtons[1]
     lazy var partnershipsButton = dashboardButtons[2]
@@ -54,7 +53,6 @@ class DashboardViewController: UIViewController {
     private var dashboardButtons = [UIButton]()
     
     // MARK: - LifeCycle Functions -
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -65,8 +63,7 @@ class DashboardViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
     }
     
-    // MARK: - Actions -
-    
+    // MARK: - Selectors -
     @objc func myProfileButtonTapped(_ sender: UIButton!) {
         navigationController?.pushViewController(MyProfileViewController(), animated: true)
         print("My Profile Button tapped")
@@ -92,7 +89,6 @@ class DashboardViewController: UIViewController {
         print("NGO Sponsors Button Tapped")
     }
     // MARK: - Helper Functions -
-    
     private func configureUI() {
         navigationController?.navigationBar.isHidden = true
         

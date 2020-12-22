@@ -30,6 +30,7 @@
 		5A249B9E258DB6F40003580C /* CorporateSponsorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A249B9D258DB6F40003580C /* CorporateSponsorsViewController.swift */; };
 		5A249BA1258DB7380003580C /* NGOSponsorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A249BA0258DB7380003580C /* NGOSponsorsViewController.swift */; };
 		5AA93F5B259190E500111C6C /* HubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA93F5A259190E500111C6C /* HubCell.swift */; };
+		5AA93F5E2591BF0100111C6C /* MyProfileDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA93F5D2591BF0100111C6C /* MyProfileDetailsViewController.swift */; };
 		5ADD8328257F7E8D00A6E6A3 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADD8327257F7E8D00A6E6A3 /* DashboardViewController.swift */; };
 		5ADD832B257F82AB00A6E6A3 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADD832A257F82AB00A6E6A3 /* UIHelper.swift */; };
 		5ADEA1F12579BEB2000E28B2 /* ProgrammaticConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADEA1F02579BEB2000E28B2 /* ProgrammaticConstraints.swift */; };
@@ -67,6 +68,7 @@
 		5A249B9D258DB6F40003580C /* CorporateSponsorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorporateSponsorsViewController.swift; sourceTree = "<group>"; };
 		5A249BA0258DB7380003580C /* NGOSponsorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGOSponsorsViewController.swift; sourceTree = "<group>"; };
 		5AA93F5A259190E500111C6C /* HubCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubCell.swift; sourceTree = "<group>"; };
+		5AA93F5D2591BF0100111C6C /* MyProfileDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileDetailsViewController.swift; sourceTree = "<group>"; };
 		5ADD8327257F7E8D00A6E6A3 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		5ADD832A257F82AB00A6E6A3 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		5ADEA1F02579BEB2000E28B2 /* ProgrammaticConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgrammaticConstraints.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 			children = (
 				5ADD8327257F7E8D00A6E6A3 /* DashboardViewController.swift */,
 				5A249B94258DB3190003580C /* MyProfileViewController.swift */,
+				5AA93F5D2591BF0100111C6C /* MyProfileDetailsViewController.swift */,
 				5A249B97258DB6530003580C /* AllHubsViewController.swift */,
 				5AA93F5A259190E500111C6C /* HubCell.swift */,
 				5A249B9A258DB6A90003580C /* PartnershipsViewController.swift */,
@@ -349,6 +352,7 @@
 				5ADEA2072579DF1D000E28B2 /* API.swift in Sources */,
 				463AD24324CF275900447BB8 /* ProfileDetailViewController.swift in Sources */,
 				5A249B92258CC2540003580C /* UIView.swift in Sources */,
+				5AA93F5E2591BF0100111C6C /* MyProfileDetailsViewController.swift in Sources */,
 				46BEB4E524C98CDC00FE0CD1 /* LoginViewController.swift in Sources */,
 				5AA93F5B259190E500111C6C /* HubCell.swift in Sources */,
 				5ADEA1F12579BEB2000E28B2 /* ProgrammaticConstraints.swift in Sources */,
