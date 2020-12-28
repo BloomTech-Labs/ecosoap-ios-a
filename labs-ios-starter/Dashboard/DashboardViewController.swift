@@ -88,11 +88,12 @@ class DashboardViewController: UIViewController {
         navigationController?.pushViewController(NGOSponsorsViewController(), animated: true)
         print("NGO Sponsors Button Tapped")
     }
+    
     // MARK: - Helper Functions -
     private func configureUI() {
         navigationController?.navigationBar.isHidden = true
         
-        UIHelper.configureGradientLayer(view: view)
+        configureGradientLayer()
         dashboardButtons = buttonSetup()
         
         view.addSubviews(subviews: welcomeUserTextLabel,dashboardButtonsVerticalStackView, middleHorizontalStackView, bottomHorizontalStackView, myProfileButton, allHubsButton, partnershipsButton, corporateSponsorsButton, ngoSponsorsButton)

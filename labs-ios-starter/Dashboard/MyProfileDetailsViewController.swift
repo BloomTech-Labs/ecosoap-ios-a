@@ -42,7 +42,7 @@ class MyProfileDetailsViewController: UIViewController {
     private func configureUI() {
         navigationController?.navigationBar.isHidden = false
         
-        UIHelper.configureGradientLayer(view: view)
+        configureGradientLayer()
         
         view.addSubviews(subviews: saveButton)
         

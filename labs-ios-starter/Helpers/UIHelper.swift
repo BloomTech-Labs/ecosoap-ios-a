@@ -9,15 +9,7 @@
 import UIKit
 
 class UIHelper {
-    
-    static func configureGradientLayer(view: UIView) {
-        let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.esbGreen?.lighter(componentDelta: 0.4).cgColor, UIColor.esbGreen?.cgColor]
-        gradient.locations = [0, 1]
-        view.layer.addSublayer(gradient)
-        gradient.frame = view.frame
-    }
-    
+
     static func configureShadow(view: UIView, color: CGColor) {
         view.layer.shadowColor = color
         view.layer.shadowOffset = CGSize(width: 5.0, height: 5.0)

@@ -103,7 +103,7 @@ class LoginViewController: UIViewController {
     private func configureUI() {
         navigationController?.navigationBar.isHidden = true
         
-        UIHelper.configureGradientLayer(view: view)
+        configureGradientLayer()
         
         view.addSubview(ecoSoapBankLogo)
         ecoSoapBankLogo.centerX(inView: view)

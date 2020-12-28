@@ -160,9 +160,9 @@ class MyProfileViewController: UIViewController {
     private func configureUI() {
         navigationController?.navigationBar.isHidden = false
         
-        UIHelper.configureGradientLayer(view: view)
+        configureGradientLayer()
 
-        view.addSubviews(subviews: verticalStackView, firstNameTextLabel, usersFirstNameTextLabel, middleNameTextLabel, usersMiddleNameTextLabel, lastNameTextLabel, usersLastNameTextLabel, emailTextLabel, usersEmailTextLabel, skypeTextLabel, usersSkypeTextLabel, phoneNumberTextLabel, usersPhoneNumberTextLabel, editDetailsButton)
+        view.addSubviews(subviews: verticalStackView, editDetailsButton)
         
         verticalStackView.addArrangedSubview(firstNameTextLabel)
         verticalStackView.addArrangedSubview(usersFirstNameTextLabel)
