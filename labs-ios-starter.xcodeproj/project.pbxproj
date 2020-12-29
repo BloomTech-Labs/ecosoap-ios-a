@@ -29,6 +29,8 @@
 		5A249B9B258DB6A90003580C /* PartnershipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A249B9A258DB6A90003580C /* PartnershipsViewController.swift */; };
 		5A249B9E258DB6F40003580C /* CorporateSponsorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A249B9D258DB6F40003580C /* CorporateSponsorsViewController.swift */; };
 		5A249BA1258DB7380003580C /* NGOSponsorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A249BA0258DB7380003580C /* NGOSponsorsViewController.swift */; };
+		5A34F7BB259A917300D402CF /* EcoSoapBankApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A34F7BA259A917300D402CF /* EcoSoapBankApiController.swift */; };
+		5A34F7D6259A946F00D402CF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A34F7D5259A946F00D402CF /* User.swift */; };
 		5AA93F5B259190E500111C6C /* HubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA93F5A259190E500111C6C /* HubCell.swift */; };
 		5AA93F5E2591BF0100111C6C /* MyProfileDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA93F5D2591BF0100111C6C /* MyProfileDetailsViewController.swift */; };
 		5ADD8328257F7E8D00A6E6A3 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADD8327257F7E8D00A6E6A3 /* DashboardViewController.swift */; };
@@ -64,6 +66,8 @@
 		5A249B9A258DB6A90003580C /* PartnershipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnershipsViewController.swift; sourceTree = "<group>"; };
 		5A249B9D258DB6F40003580C /* CorporateSponsorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorporateSponsorsViewController.swift; sourceTree = "<group>"; };
 		5A249BA0258DB7380003580C /* NGOSponsorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGOSponsorsViewController.swift; sourceTree = "<group>"; };
+		5A34F7BA259A917300D402CF /* EcoSoapBankApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcoSoapBankApiController.swift; sourceTree = "<group>"; };
+		5A34F7D5259A946F00D402CF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5AA93F5A259190E500111C6C /* HubCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubCell.swift; sourceTree = "<group>"; };
 		5AA93F5D2591BF0100111C6C /* MyProfileDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileDetailsViewController.swift; sourceTree = "<group>"; };
 		5ADD8327257F7E8D00A6E6A3 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 				465DAA2724BD0BC100D94C24 /* App Lifecycle */,
 				46BEB4EB24C98EB400FE0CD1 /* Model */,
 				46BEB4EC24C98EBB00FE0CD1 /* Model Controller */,
+				5A34F7B9259A90DF00D402CF /* Network Controller */,
 				46BEB4EF24C98ED900FE0CD1 /* Login */,
 				5ADD8326257F7E5800A6E6A3 /* Dashboard */,
 				46BEB4F224C98F1100FE0CD1 /* Profiles */,
@@ -144,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				46BEB4E024C9828800FE0CD1 /* Profile.swift */,
+				5A34F7D5259A946F00D402CF /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -175,6 +181,14 @@
 				46BEB4F024C98F0D00FE0CD1 /* Profiles.storyboard */,
 			);
 			path = Profiles;
+			sourceTree = "<group>";
+		};
+		5A34F7B9259A90DF00D402CF /* Network Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5A34F7BA259A917300D402CF /* EcoSoapBankApiController.swift */,
+			);
+			path = "Network Controller";
 			sourceTree = "<group>";
 		};
 		5ADD8326257F7E5800A6E6A3 /* Dashboard */ = {
@@ -305,6 +319,8 @@
 				5AF219962594723700A0C685 /* UIViewController.swift in Sources */,
 				5A249B9E258DB6F40003580C /* CorporateSponsorsViewController.swift in Sources */,
 				5A17BC8E258A4294007783BB /* DashboardButton.swift in Sources */,
+				5A34F7D6259A946F00D402CF /* User.swift in Sources */,
+				5A34F7BB259A917300D402CF /* EcoSoapBankApiController.swift in Sources */,
 				5A249BA1258DB7380003580C /* NGOSponsorsViewController.swift in Sources */,
 				46BEB4E724C98D8900FE0CD1 /* Notifications.swift in Sources */,
 				46BEB4E124C9828800FE0CD1 /* Profile.swift in Sources */,

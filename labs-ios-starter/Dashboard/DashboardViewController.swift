@@ -19,7 +19,6 @@ class DashboardViewController: UIViewController {
 
     private let welcomeUserTextLabel: UILabel = {
         let label = UILabel()
-        label.text = "Welcome User"
         label.textColor = UIColor.black
         label.textAlignment = .center
         label.font = UIFont.init(name: "Verdana", size: 30)
@@ -52,10 +51,17 @@ class DashboardViewController: UIViewController {
     
     private var dashboardButtons = [UIButton]()
     
+    let ecoSoapBankApiController = EcoSoapBankApiController()
+    var user: User?
+    
     // MARK: - LifeCycle Functions -
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        guard let user = User.self else { return }
+        ecoSoapBankApiController.fetchUserDetails(with: user.self) { _ in
+            
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -97,6 +103,8 @@ class DashboardViewController: UIViewController {
         dashboardButtons = buttonSetup()
         
         view.addSubviews(subviews: welcomeUserTextLabel,dashboardButtonsVerticalStackView, middleHorizontalStackView, bottomHorizontalStackView, myProfileButton, allHubsButton, partnershipsButton, corporateSponsorsButton, ngoSponsorsButton)
+        
+        welcomeUserTextLabel.text = "Welcome \(ecoSoapBankApiController.users.first?.firstName ?? "User")"
         
         myProfileButton.addTarget(self, action: #selector(myProfileButtonTapped(_:)), for: .touchUpInside)
         allHubsButton.addTarget(self, action: #selector(allHubsButtonTapped(_:)), for: .touchUpInside)
