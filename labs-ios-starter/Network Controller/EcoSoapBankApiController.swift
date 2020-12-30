@@ -77,7 +77,7 @@ class EcoSoapBankApiController {
             do {
                 let json = try JSONSerialization.jsonObject(with: data, options: [])
                 print("This is the json: \(json)")
-                self.users = try Array(self.jsonDecoder.decode(Data.self, from: data).data)
+                self.users = try Array(arrayLiteral: self.jsonDecoder.decode(User.self, from: data))
                 print(self.users.count)
                 completion(.success(true))
             } catch {

@@ -10,6 +10,9 @@ import UIKit
 
 class MyProfileViewController: UIViewController {
     
+    var user: User?
+    var ecoSoapBankApiController: EcoSoapBankApiController?
+    
     // MARK: - TextLabels -
     private let firstNameTextLabel: UILabel = {
         let label = UILabel()
@@ -148,6 +151,9 @@ class MyProfileViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         configureNavigationBar()
+//        guard let user = user else { return }
+        ecoSoapBankApiController?.fetchUserDetails(with: user!) { _ in
+        }
     }
     
     // MARK: - Selectors -
@@ -180,6 +186,15 @@ class MyProfileViewController: UIViewController {
         verticalStackView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 20, paddingLeft: 30, paddingRight: 30)
         
         editDetailsButton.anchor(top: verticalStackView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 40, paddingLeft: 70, paddingRight: 70)
+        
+        guard let user = user else { return }
+        // TODO: Don't forget to delete label.text = "..." from labels above!
+        usersFirstNameTextLabel.text = user.firstName
+        usersMiddleNameTextLabel.text = user.middleName
+        usersLastNameTextLabel.text = user.lastName
+        usersEmailTextLabel.text = user.email
+        usersSkypeTextLabel.text = user.skype
+        usersPhoneNumberTextLabel.text = user.phone
     }
     
     func configureNavigationBar() {

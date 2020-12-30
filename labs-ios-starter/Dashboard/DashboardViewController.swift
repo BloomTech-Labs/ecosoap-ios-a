@@ -58,10 +58,12 @@ class DashboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        guard let user = User.self else { return }
-        ecoSoapBankApiController.fetchUserDetails(with: user.self) { _ in
-            
+        guard let user = self.user else { return }
+        ecoSoapBankApiController.fetchUserDetails(with: user) { _ in
         }
+//        self.ecoSoapBankApiController.fetchUserDetails(with: user) { _ in
+//            DispatchQueue.main.async { self.welcomeUserTextLabel.text = "Welcome \(self.ecoSoapBankApiController.users.first?.firstName ?? "User")" }
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
