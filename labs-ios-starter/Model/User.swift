@@ -8,40 +8,40 @@
 
 import Foundation
 
-//struct Data: Codable {
-//    var data: [User]
+struct Data: Codable {
+    var data: [User]
+}
+
+struct User: Codable {
+    var firstName: String
+    var middleName: String?
+    var lastName: String
+    var email: String
+    var phone: String
+    var skype: String
+}
+
+//// MARK: - Empty
+//struct Empty: Codable {
+//    let mPfZ09AUTcOJMDShGE: MPfZ09AUTcOJMDShGE
+//
+//    enum CodingKeys: String, CodingKey {
+//        case mPfZ09AUTcOJMDShGE = "-MPfZ09AUTcO_JMDShGE"
+//    }
 //}
 //
-//struct User: Codable {
-//    var firstName: String
-//    var middleName: String?
-//    var lastName: String
-//    var email: String
-//    var phone: String
-//    var skype: String
+//// MARK: - MPfZ09AUTcOJMDShGE
+//struct MPfZ09AUTcOJMDShGE: Codable {
+//    let data: DataClass
 //}
-
-// MARK: - Empty
-struct Empty: Codable {
-    let mPfZ09AUTcOJMDShGE: MPfZ09AUTcOJMDShGE
-
-    enum CodingKeys: String, CodingKey {
-        case mPfZ09AUTcOJMDShGE = "-MPfZ09AUTcO_JMDShGE"
-    }
-}
-
-// MARK: - MPfZ09AUTcOJMDShGE
-struct MPfZ09AUTcOJMDShGE: Codable {
-    let data: DataClass
-}
-
-// MARK: - DataClass
-struct DataClass: Codable {
-    let users: [User]
-}
-
-// MARK: - User
-struct User: Codable {
-    let email, firstName, id, lastName: String
-    let middleName, phone, role, skype: String
-}
+//
+//// MARK: - DataClass
+//struct DataClass: Codable {
+//    let users: [User]
+//}
+//
+//// MARK: - User
+//struct User: Codable {
+//    let email, firstName, id, lastName: String
+//    let middleName, phone, role, skype: String
+//}

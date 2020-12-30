@@ -59,7 +59,7 @@ class DashboardViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         guard let user = self.user else { return }
-        ecoSoapBankApiController.fetchUserDetails(with: user) { _ in
+        ecoSoapBankApiController.fetchUserDetails(user.firstName) { _ in
         }
 //        self.ecoSoapBankApiController.fetchUserDetails(with: user) { _ in
 //            DispatchQueue.main.async { self.welcomeUserTextLabel.text = "Welcome \(self.ecoSoapBankApiController.users.first?.firstName ?? "User")" }

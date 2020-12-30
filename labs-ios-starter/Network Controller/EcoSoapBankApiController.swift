@@ -50,39 +50,37 @@ class EcoSoapBankApiController {
     
     // MARK: - Network Calls -
 
-    func fetchUserDetails(with user: User, completion: @escaping CompletionHandler) {
-        let userURL = baseURL
+    func fetchUserDetails(_ userName: String, completion: @escaping (User?) -> Void) {
+        let userURL = baseURL.appendingPathComponent(userName)
         var request = URLRequest(url: userURL)
         request.httpMethod = HTTPMethod.get.rawValue
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 print("Error fetching users with error: \(error)")
-                completion(.failure(.failedFetch))
+                completion(nil)
                 return
             }
             
             if let response = response as? HTTPURLResponse,
                 response.statusCode != 200 {
                 print(response)
-                completion(.failure(.badAuth))
+                completion(nil)
                 return
             }
             
             guard let data = data else {
-                completion(.failure(.badData))
+                completion(nil)
                 return
             }
             
             do {
-                let json = try JSONSerialization.jsonObject(with: data, options: [])
-                print("This is the json: \(json)")
-                self.users = try Array(arrayLiteral: self.jsonDecoder.decode(User.self, from: data))
+                try self.jsonDecoder.decode(User.self, from: data)
                 print(self.users.count)
-                completion(.success(true))
+                completion(nil)
             } catch {
                 print("Error decoding user details: \(error)")
-                completion(.failure(.noDecode))
+                completion(nil)
             }
         }.resume()
     }

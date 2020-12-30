@@ -25,7 +25,7 @@ class MyProfileViewController: UIViewController {
     
     private let usersFirstNameTextLabel: UILabel = {
         let label = UILabel()
-        label.text = "Stephanie"
+//        label.text = "Stephanie"
         label.textColor = UIColor.black
         label.textAlignment = .left
         label.font = UIFont.init(name: "Verdana", size: 16)
@@ -151,8 +151,8 @@ class MyProfileViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         configureNavigationBar()
-//        guard let user = user else { return }
-        ecoSoapBankApiController?.fetchUserDetails(with: user!) { _ in
+        guard let user = user else { return }
+        ecoSoapBankApiController?.fetchUserDetails(user.firstName) { _ in
         }
     }
     
@@ -190,11 +190,11 @@ class MyProfileViewController: UIViewController {
         guard let user = user else { return }
         // TODO: Don't forget to delete label.text = "..." from labels above!
         usersFirstNameTextLabel.text = user.firstName
-        usersMiddleNameTextLabel.text = user.middleName
-        usersLastNameTextLabel.text = user.lastName
-        usersEmailTextLabel.text = user.email
-        usersSkypeTextLabel.text = user.skype
-        usersPhoneNumberTextLabel.text = user.phone
+//        usersMiddleNameTextLabel.text = user.middleName
+//        usersLastNameTextLabel.text = user.lastName
+//        usersEmailTextLabel.text = user.email
+//        usersSkypeTextLabel.text = user.skype
+//        usersPhoneNumberTextLabel.text = user.phone
     }
     
     func configureNavigationBar() {
