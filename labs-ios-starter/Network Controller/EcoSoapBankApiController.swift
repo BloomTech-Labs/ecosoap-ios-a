@@ -36,6 +36,9 @@ class EcoSoapBankApiController {
     // MARK: - Properties -
     
     var users: [User] = []
+    var user: User?
+
+    
     
     typealias CompletionHandler = (Result<Bool, NetworkError>) -> Void
     private let baseURL = URL(string: "https://ecosoapbank-96311-default-rtdb.firebaseio.com/")!
@@ -50,37 +53,38 @@ class EcoSoapBankApiController {
     
     // MARK: - Network Calls -
 
-    func fetchUserDetails(_ userName: String, completion: @escaping (User?) -> Void) {
+    func fetchUserDetails(_ userName: String, completion: @escaping (Result<[User], NetworkError>) -> Void) {
         let userURL = baseURL.appendingPathComponent(userName)
         var request = URLRequest(url: userURL)
         request.httpMethod = HTTPMethod.get.rawValue
         
-        URLSession.shared.dataTask(with: request) { data, response, error in
+        URLSession.shared.dataTask(with: request) { [self] data, response, error in
             if let error = error {
                 print("Error fetching users with error: \(error)")
-                completion(nil)
+                completion(.failure(.otherError))
                 return
             }
             
             if let response = response as? HTTPURLResponse,
                 response.statusCode != 200 {
                 print(response)
-                completion(nil)
+                completion(.failure(.badAuth))
                 return
             }
             
             guard let data = data else {
-                completion(nil)
+                completion(.failure(.badData))
                 return
             }
             
             do {
-                try self.jsonDecoder.decode(User.self, from: data)
+                let user = try self.jsonDecoder.decode(User.self, from: data)
+                self.users.append(user)
                 print(self.users.count)
-                completion(nil)
+                completion(.success(self.users))
             } catch {
                 print("Error decoding user details: \(error)")
-                completion(nil)
+                completion(.failure(.noDecode))
             }
         }.resume()
     }
