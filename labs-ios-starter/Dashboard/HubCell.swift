@@ -6,11 +6,11 @@
 //  Copyright © 2020 Spencer Curtis. All rights reserved.
 //
 
+import UIKit
+
 protocol ReusableView: AnyObject {
     static var identifier: String { get }
 }
-
-import UIKit
 
 final class HubCell: UICollectionViewCell {
     

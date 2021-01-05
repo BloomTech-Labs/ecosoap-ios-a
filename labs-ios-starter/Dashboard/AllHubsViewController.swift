@@ -31,7 +31,7 @@ class AllHubsViewController: UIViewController {
     private func configureUI() {
         navigationController?.navigationBar.isHidden = false
         
-        UIHelper.configureGradientLayer(view: view)
+        configureGradientLayer()
         
         view.addSubviews(subviews: collectionView)
         
@@ -41,11 +41,7 @@ class AllHubsViewController: UIViewController {
         collectionView.delegate = self
         collectionView.alwaysBounceVertical = true
         
-        // TODO: change to match cell for hubs once it is created
-        
         collectionView.register(HubCell.self, forCellWithReuseIdentifier: HubCell.identifier)
-        
-        
     }
     
     func configureNavigationBar() {
@@ -66,14 +62,11 @@ class AllHubsViewController: UIViewController {
 
 extension AllHubsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return 12
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HubCell.identifier, for: indexPath) as! HubCell
-
-        
-        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HubCell.identifier, for: indexPath) as? HubCell else { return UICollectionViewCell() }
         cell.contentView.backgroundColor = UIColor.esbGreen
         return cell
     }

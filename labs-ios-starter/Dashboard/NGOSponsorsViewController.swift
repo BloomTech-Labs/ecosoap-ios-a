@@ -17,6 +17,7 @@ class NGOSponsorsViewController: UIViewController {
     
     private func configureUI() {
         navigationController?.navigationBar.isHidden = false
-        view.backgroundColor = .purple
+        
+        configureGradientLayer()
     }
 }
