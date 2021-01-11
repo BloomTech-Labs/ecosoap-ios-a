@@ -35,7 +35,7 @@ class EcoSoapBankApiController {
     
     // MARK: - Properties -
     
-    var users: [User] = []
+    var user: User?
     
     typealias CompletionHandler = (Result<Bool, NetworkError>) -> Void
     private let baseURL = URL(string: "https://ecosoapbank-96311-default-rtdb.firebaseio.com/")!
@@ -50,8 +50,11 @@ class EcoSoapBankApiController {
     
     // MARK: - Network Calls -
 
-    func fetchUserDetails(_ userName: String, completion: @escaping (User?) -> Void) {
-        let userURL = baseURL.appendingPathComponent(userName)
+    func fetchUserDetails(_ userId: String, completion: @escaping (User?) -> Void) {
+        let userURL = baseURL.appendingPathComponent("-MQjQfD_-xYj3p9ykl_7")
+                             .appendingPathComponent("users")
+                             .appendingPathComponent("0")
+                             .appendingPathExtension("json")
         var request = URLRequest(url: userURL)
         request.httpMethod = HTTPMethod.get.rawValue
         
@@ -75,8 +78,10 @@ class EcoSoapBankApiController {
             }
             
             do {
-                try self.jsonDecoder.decode(User.self, from: data)
-                print(self.users.count)
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
+                print("This is the json: \(json)")
+                self.user = try self.jsonDecoder.decode(User.self, from: data)
+                print(self.user?.firstName as Any)
                 completion(nil)
             } catch {
                 print("Error decoding user details: \(error)")
