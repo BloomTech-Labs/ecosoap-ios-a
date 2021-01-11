@@ -52,7 +52,6 @@ class DashboardViewController: UIViewController {
     private var dashboardButtons = [UIButton]()
     
     let ecoSoapBankApiController = EcoSoapBankApiController()
-    var user: User?
     
     // MARK: - LifeCycle Functions -
     override func viewDidLoad() {
@@ -73,7 +72,9 @@ class DashboardViewController: UIViewController {
     
     // MARK: - Selectors -
     @objc func myProfileButtonTapped(_ sender: UIButton!) {
-        navigationController?.pushViewController(MyProfileViewController(), animated: true)
+        let myProfileVC = MyProfileViewController()
+        myProfileVC.ecoSoapBankApiController = self.ecoSoapBankApiController
+        navigationController?.pushViewController(myProfileVC, animated: true)
         print("My Profile Button tapped")
     }
     
