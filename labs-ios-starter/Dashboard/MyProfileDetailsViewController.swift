@@ -25,6 +25,69 @@ class MyProfileDetailsViewController: UIViewController {
         return button
     }()
     
+    private let firstNameTextLabel: UILabel = {
+        let label = UILabel()
+        label.text = "First Name:"
+        label.textColor = UIColor.black
+        label.textAlignment = .left
+        label.font = UIFont.init(name: "Verdana", size: 16)
+        return label
+    }()
+    
+    private let middleNameTextLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Middle Name:"
+        label.textColor = UIColor.black
+        label.textAlignment = .left
+        label.font = UIFont.init(name: "Verdana", size: 16)
+        return label
+    }()
+    
+    private let lastNameTextLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Last Name:"
+        label.textColor = UIColor.black
+        label.textAlignment = .left
+        label.font = UIFont.init(name: "Verdana", size: 16)
+        return label
+    }()
+    
+    private let emailTextLabel: UILabel = {
+        let label = UILabel()
+        label.text = "E-mail:"
+        label.textColor = UIColor.black
+        label.textAlignment = .left
+        label.font = UIFont.init(name: "Verdana", size: 16)
+        return label
+    }()
+    
+    private let skypeTextLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Skype:"
+        label.textColor = UIColor.black
+        label.textAlignment = .left
+        label.font = UIFont.init(name: "Verdana", size: 16)
+        return label
+    }()
+    
+    private let phoneNumberTextLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Phone Number:"
+        label.textColor = UIColor.black
+        label.textAlignment = .left
+        label.font = UIFont.init(name: "Verdana", size: 16)
+        return label
+    }()
+    
+    // MARK: - StackView -
+    private let verticalStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.spacing = 8
+        return stackView
+    }()
+    
     // MARK: - LifeCycle Functions -
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,11 +107,18 @@ class MyProfileDetailsViewController: UIViewController {
         
         configureGradientLayer()
         
-        view.addSubviews(subviews: saveButton)
+        view.addSubviews(subviews: verticalStackView, saveButton)
         
-        // TODO: Change to real constraints
-//        saveButton.centerX(inView: view)
-//        saveButton.centerY(inView: view)
+        verticalStackView.addArrangedSubview(firstNameTextLabel)
+        verticalStackView.addArrangedSubview(middleNameTextLabel)
+        verticalStackView.addArrangedSubview(lastNameTextLabel)
+        verticalStackView.addArrangedSubview(emailTextLabel)
+        verticalStackView.addArrangedSubview(skypeTextLabel)
+        verticalStackView.addArrangedSubview(phoneNumberTextLabel)
+        
+        verticalStackView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 20, paddingLeft: 30, paddingRight: 30)
+        
+        saveButton.anchor(top: verticalStackView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 40, paddingLeft: 70, paddingRight: 70)
     }
     
     func configureNavigationBar() {

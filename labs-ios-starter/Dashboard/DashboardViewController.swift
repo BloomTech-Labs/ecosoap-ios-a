@@ -52,18 +52,17 @@ class DashboardViewController: UIViewController {
     private var dashboardButtons = [UIButton]()
     
     let ecoSoapBankApiController = EcoSoapBankApiController()
-    var user: User?
     
     // MARK: - LifeCycle Functions -
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        guard let user = self.user else { return }
-        ecoSoapBankApiController.fetchUserDetails(user.firstName) { _ in
+        
+        ecoSoapBankApiController.fetchUserDetails("0") { _ in
+            DispatchQueue.main.async {
+                self.welcomeUserTextLabel.text = "Welcome \(self.ecoSoapBankApiController.user?.firstName ?? "Welcome User")"
+            }
         }
-//        self.ecoSoapBankApiController.fetchUserDetails(with: user) { _ in
-//            DispatchQueue.main.async { self.welcomeUserTextLabel.text = "Welcome \(self.ecoSoapBankApiController.users.first?.firstName ?? "User")" }
-//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,7 +72,9 @@ class DashboardViewController: UIViewController {
     
     // MARK: - Selectors -
     @objc func myProfileButtonTapped(_ sender: UIButton!) {
-        navigationController?.pushViewController(MyProfileViewController(), animated: true)
+        let myProfileVC = MyProfileViewController()
+        myProfileVC.ecoSoapBankApiController = self.ecoSoapBankApiController
+        navigationController?.pushViewController(myProfileVC, animated: true)
         print("My Profile Button tapped")
     }
     
@@ -105,8 +106,6 @@ class DashboardViewController: UIViewController {
         dashboardButtons = buttonSetup()
         
         view.addSubviews(subviews: welcomeUserTextLabel,dashboardButtonsVerticalStackView, middleHorizontalStackView, bottomHorizontalStackView, myProfileButton, allHubsButton, partnershipsButton, corporateSponsorsButton, ngoSponsorsButton)
-        
-        welcomeUserTextLabel.text = "Welcome \(ecoSoapBankApiController.users.first?.firstName ?? "User")"
         
         myProfileButton.addTarget(self, action: #selector(myProfileButtonTapped(_:)), for: .touchUpInside)
         allHubsButton.addTarget(self, action: #selector(allHubsButtonTapped(_:)), for: .touchUpInside)

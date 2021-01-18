@@ -10,9 +10,6 @@ import UIKit
 
 class MyProfileViewController: UIViewController {
     
-    var user: User?
-    var ecoSoapBankApiController: EcoSoapBankApiController?
-    
     // MARK: - TextLabels -
     private let firstNameTextLabel: UILabel = {
         let label = UILabel()
@@ -25,7 +22,6 @@ class MyProfileViewController: UIViewController {
     
     private let usersFirstNameTextLabel: UILabel = {
         let label = UILabel()
-//        label.text = "Stephanie"
         label.textColor = UIColor.black
         label.textAlignment = .left
         label.font = UIFont.init(name: "Verdana", size: 16)
@@ -43,7 +39,6 @@ class MyProfileViewController: UIViewController {
     
     private let usersMiddleNameTextLabel: UILabel = {
         let label = UILabel()
-        label.text = "Anne"
         label.textColor = UIColor.black
         label.textAlignment = .left
         label.font = UIFont.init(name: "Verdana", size: 16)
@@ -61,7 +56,6 @@ class MyProfileViewController: UIViewController {
     
     private let usersLastNameTextLabel: UILabel = {
         let label = UILabel()
-        label.text = "Ballard"
         label.textColor = UIColor.black
         label.textAlignment = .left
         label.font = UIFont.init(name: "Verdana", size: 16)
@@ -79,7 +73,6 @@ class MyProfileViewController: UIViewController {
     
     private let usersEmailTextLabel: UILabel = {
         let label = UILabel()
-        label.text = "Stephanie@gmail.com"
         label.textColor = UIColor.black
         label.textAlignment = .left
         label.font = UIFont.init(name: "Verdana", size: 16)
@@ -97,7 +90,6 @@ class MyProfileViewController: UIViewController {
     
     private let usersSkypeTextLabel: UILabel = {
         let label = UILabel()
-        label.text = "Stephanie@Skype"
         label.textColor = UIColor.black
         label.textAlignment = .left
         label.font = UIFont.init(name: "Verdana", size: 16)
@@ -115,7 +107,6 @@ class MyProfileViewController: UIViewController {
     
     private let usersPhoneNumberTextLabel: UILabel = {
         let label = UILabel()
-        label.text = "282-890-3458"
         label.textColor = UIColor.black
         label.textAlignment = .left
         label.font = UIFont.init(name: "Verdana", size: 16)
@@ -146,13 +137,23 @@ class MyProfileViewController: UIViewController {
         return button
     }()
     
+    var ecoSoapBankApiController: EcoSoapBankApiController?
+    
     // MARK: - LifeCycle Functions -
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         configureNavigationBar()
-        guard let user = user else { return }
-        ecoSoapBankApiController?.fetchUserDetails(user.firstName) { _ in
+        
+        ecoSoapBankApiController?.fetchUserDetails("0") { _ in
+            DispatchQueue.main.async {
+                self.usersFirstNameTextLabel.text = self.ecoSoapBankApiController?.user?.firstName;
+                self.usersMiddleNameTextLabel.text = self.ecoSoapBankApiController?.user?.middleName;
+                self.usersLastNameTextLabel.text = self.ecoSoapBankApiController?.user?.lastName;
+                self.usersEmailTextLabel.text = self.ecoSoapBankApiController?.user?.email;
+                self.usersSkypeTextLabel.text = self.ecoSoapBankApiController?.user?.email;
+                self.usersSkypeTextLabel.text = self.ecoSoapBankApiController?.user?.phone;
+            }
         }
     }
     
@@ -186,15 +187,6 @@ class MyProfileViewController: UIViewController {
         verticalStackView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 20, paddingLeft: 30, paddingRight: 30)
         
         editDetailsButton.anchor(top: verticalStackView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 40, paddingLeft: 70, paddingRight: 70)
-        
-        guard let user = user else { return }
-        // TODO: Don't forget to delete label.text = "..." from labels above!
-        usersFirstNameTextLabel.text = user.firstName
-//        usersMiddleNameTextLabel.text = user.middleName
-//        usersLastNameTextLabel.text = user.lastName
-//        usersEmailTextLabel.text = user.email
-//        usersSkypeTextLabel.text = user.skype
-//        usersPhoneNumberTextLabel.text = user.phone
     }
     
     func configureNavigationBar() {
